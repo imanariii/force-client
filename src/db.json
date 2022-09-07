@@ -1,0 +1,100 @@
+{
+  "sneaks": [
+    {
+      "id": 1,
+      "img": "https://static.street-beat.ru/upload/resize_cache/iblock/1da/500_500_1/1da5c645ef9826a27087987516fd0f26.jpg",
+      "name": "Мужские кроссовки Nike Air Max 270",
+      "price": 18999,
+      "brand": "Nike",
+      "popular": 10
+    },
+    {
+      "id": 2,
+      "img": "https://static.street-beat.ru/upload/resize_cache/iblock/73e/500_500_1/73eeeacaf030b7c59706da58a008e14d.jpg",
+      "name": "Мужские кроссовки Nike Air Max 95 Essential",
+      "price": 21699,
+      "brand": "Nike",
+      "popular": 5
+    },
+    {
+      "id": 3,
+      "img": "https://static.street-beat.ru/upload/resize_cache/iblock/84a/500_500_1/84a8c45c200d380a4dbb4f4cc1c55850.jpg",
+      "name": "Мужские кроссовки Nike Waffle Trainer 2",
+      "price": 11999,
+      "brand": "Nike",
+      "popular": 12
+    },
+    {
+      "id": 4,
+      "img": "https://static.street-beat.ru/upload/iblock/914/914215d878fde6f562ede34f549c260b.jpg",
+      "name": "Мужские кроссовки Nike Air Huarache",
+      "price": 14999,
+      "brand": "Nike",
+      "popular": 11
+    },
+    {
+      "id": 5,
+      "img": "https://static.street-beat.ru/upload/resize_cache/iblock/862/500_500_1/86233dcf451fa4a4211f9269348e513a.jpg",
+      "name": "Мужские кроссовки Nike Waffle One Next Nature",
+      "price": 12599,
+      "brand": "Nike",
+      "popular": 6
+    },
+    {
+      "id": 6,
+      "img": "https://static.street-beat.ru/upload/iblock/914/914215d878fde6f562ede34f549c260b.jpg",
+      "name": "Мужские кроссовки Nike Air Huarache",
+      "price": 14999,
+      "brand": "Nike",
+      "popular": 9
+    },
+    {
+      "id": 7,
+      "img": "https://static.street-beat.ru/upload/resize_cache/iblock/ea5/500_500_1/ea5217bb393cfaa7cdcf980e6a1f5fa5.jpg",
+      "name": "Мужские кроссовки Nike Air Max 90 Surplus",
+      "price": 17899,
+      "brand": "Nike",
+      "popular": 7
+    },
+    {
+      "id": 8,
+      "img": "https://static.street-beat.ru/upload/resize_cache/iblock/1da/500_500_1/1da5c645ef9826a27087987516fd0f26.jpg",
+      "name": "Мужские кроссовки Nike Air Max 270",
+      "price": 18999,
+      "brand": "Nike",
+      "popular": 8
+    },
+    {
+      "id": 9,
+      "img": "https://static.street-beat.ru/upload/iblock/52f/52f036d2d1bfc603e16350d3f65df7fa.jpg",
+      "name": "Мужские кроссовки Nike Air Max Dawn",
+      "price": 14699,
+      "brand": "Nike",
+      "popular": 4
+    },
+    {
+      "id": 10,
+      "img": "https://static.street-beat.ru/upload/iblock/a4d/a4d7c370a8839b6bea4f97b4820e250f.jpg",
+      "name": "Мужские кроссовки Nike Zoom Freak 3",
+      "price": 15699,
+      "brand": "Nike",
+      "popular": 3
+    },
+    {
+      "id": 11,
+      "img": "https://static.street-beat.ru/upload/resize_cache/iblock/c97/500_500_1/c97becbc524111185b01da098ad18abd.jpg",
+      "name": "Мужские кроссовки Nike Blazer Low '77 Vintage",
+      "price": 11199,
+      "brand": "Nike",
+      "popular": 2
+    },
+    {
+      "id": 12,
+      "img": "https://static.street-beat.ru/upload/resize_cache/iblock/de9/500_500_1/de9da58ce92055b0d37b596a828b6fe6.jpg",
+      "name": "Мужские кроссовки Nike Air Max 2090",
+      "price": 17299,
+      "brand": "Nike",
+      "popular": 1
+    }
+  ]
+}
