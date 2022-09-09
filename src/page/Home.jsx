@@ -1,8 +1,9 @@
 import React from 'react';
 import { Header, Sort, Footer} from "../components";
+import { ArrowDownOutlined, ArrowUpOutlined, RedoOutlined } from '@ant-design/icons';
 
 function Home({items, cart, addNewCart}) {
-    const sortItems = ['По умолчанию', 'Цена по убывания', 'Цена по возрастанию'];
+    const sortItems = [ <RedoOutlined style={{ fontSize: '16px' }} />, <ArrowDownOutlined style={{ fontSize: '16px' }} />, <ArrowUpOutlined style={{ fontSize: '16px' }} />];
     return (
         <>
             <Header cart={cart} />

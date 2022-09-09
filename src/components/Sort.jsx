@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {Sorting} from "./index";
-
 
 function Sort ({items, sortItems, addNewCart}) {
     const [filter, setFilter] = useState("");
-    const [sortItem, setSortItem] = useState('По умолчанию');
+    const [sortItem, setSortItem] = useState(sortItems[0]);
     return (
         <>
             <div className="filters--wrapper">
-                <div className="filters--wrapper-item">
-                    <label htmlFor="filter">Фильтрация моделей:</label>
-                    <input
-                        value={filter}
-                        onChange={({ target: { value } }) => setFilter(value)}
-                        id="filter"
-                    />
-                </div>
+                    <div className="search-div filters--wrapper-item">
+                        <form action="" method="post" className="search">
+                            <input type="search"
+                                   value={filter}
+                                   onChange={({ target: { value } }) => setFilter(value)}
+                                   id="filter"
+                                   name="" placeholder="Поиск..." className="input"/>
+                        </form>
+                    </div>
                 <div className="filters--wrapper-item">
                     { sortItems.map((sortItem, i) => (
                         <button
@@ -23,9 +23,9 @@ function Sort ({items, sortItems, addNewCart}) {
                             onClick={() => {
                                 setSortItem(sortItems[i])
                             }}
-                            className="waves-effect waves-block waves-light card"
+                            className="btn"
                         >
-                            {sortItems[i]}
+                            {sortItem}
                         </button>
                     ))}
                 </div>
@@ -33,7 +33,7 @@ function Sort ({items, sortItems, addNewCart}) {
             <div>
                 Модели :
                 <div className="items">
-                    <Sorting sortItems={sortItems} sortItem={sortItem} items={items} filter={filter} addNewCart={addNewCart}/>
+                    <Sorting sortItems={sortItems} sortItem={sortItem} items={items} filter={filter} addNewCart={addNewCart} />
                 </div>
             </div>
         </>

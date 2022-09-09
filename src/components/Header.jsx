@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ShoppingCartOutlined } from '@ant-design/icons';
 
 function Header ({cart}) {
     return (
         <header>
-            <nav className="teal lighten-1">
+            <nav>
                 <div className="nav-wrapper container">
-                    <Link to="/cart" className="right text-decoration-none" >Корзина
-                        <b>
-                            ({cart.length})
-                        </b>
+                    <Link to="/"><h1>React Shop</h1></Link>
+                    <Link to="/cart"><ShoppingCartOutlined style={{ fontSize: '32px' }} />
+                        <span className="cart-length">{cart.length}</span>
                     </Link>
-                    <Link to="/" className="brand-logo text-decoration-none">React Shop</Link>
+
                 </div>
             </nav>
         </header>
