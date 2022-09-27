@@ -609,8 +609,151 @@ main {
         height: 300px;
     }
 
+}@media (max-width: 2560px) {
+    .mainprev-title {
+        font-size: 38px;
+    }
+    .mainprev__wrapper {
+        background-size: 100% 100%;
+        background-image: url(https://sun9-88.userapi.com/impg/NcUKZt1LEG3Wnu6Pyhc5wSEuppgBDhmgaTxHaA/hnE46nX4YA0.jpg?size=1440x1440&quality=96&sign=6a19bbcbea5198dbd5fcb9b8ccf7523b&type=album);
+    }
+    .mainprev__body {
+        padding: 72px 120px;
+        justify-content: space-between;
+    }
+    .mainprev-btns {
+        width: 100%;
+        align-items: center;
+        justify-content: flex-end;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .mainprev-btns button {
+        font-size: 18px;
+    }
+    .parallax__wrapper span {
+        font-size: 28px;
+        letter-spacing: 2px;
+        font-weight: bold;
+    }
+    .categorias-lists {
+        justify-content: center;
+    }
 }
-
+@media (max-width: 1440px) {
+    .mainprev-title {
+        font-size: 38px;
+    }
+    .mainprev__wrapper {
+        background-size: 100% 100%;
+        background-image: url(https://sun9-88.userapi.com/impg/NcUKZt1LEG3Wnu6Pyhc5wSEuppgBDhmgaTxHaA/hnE46nX4YA0.jpg?size=1440x1440&quality=96&sign=6a19bbcbea5198dbd5fcb9b8ccf7523b&type=album);
+    }
+    .mainprev__body {
+        padding: 48px 32px;
+        justify-content: space-between;
+    }
+    .mainprev-btns {
+        width: 100%;
+        align-items: center;
+        justify-content: flex-end;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .mainprev-btns button {
+        font-size: 12px;
+    }
+    .parallax__wrapper span {
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .categorias-lists {
+        justify-content: center;
+    }
+}
+@media (max-width: 1024px) {
+    .mainprev-title {
+        font-size: 38px;
+    }
+    .mainprev__wrapper {
+        background-size: 100% 100%;
+        background-image: url(https://sun9-88.userapi.com/impg/NcUKZt1LEG3Wnu6Pyhc5wSEuppgBDhmgaTxHaA/hnE46nX4YA0.jpg?size=1440x1440&quality=96&sign=6a19bbcbea5198dbd5fcb9b8ccf7523b&type=album);
+    }
+    .mainprev__body {
+        padding: 32px 18px;
+        justify-content: space-between;
+    }
+    .mainprev-btns {
+        width: 100%;
+        align-items: center;
+        justify-content: flex-end;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+    .parallax__wrapper span {
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .categorias-lists {
+        justify-content: center;
+    }
+}
+@media (max-width: 768px) {
+    .mainprev-title {
+        font-size: 32px;
+    }
+    .mainprev__wrapper {
+        background-size: 100% 100%;
+        background-image: url(https://sun9-88.userapi.com/impg/NcUKZt1LEG3Wnu6Pyhc5wSEuppgBDhmgaTxHaA/hnE46nX4YA0.jpg?size=1440x1440&quality=96&sign=6a19bbcbea5198dbd5fcb9b8ccf7523b&type=album);
+    }
+    .mainprev__body {
+        padding: 32px 18px;
+        justify-content: space-between;
+    }
+    .mainprev-btns {
+        align-items: flex-end;
+        justify-content: flex-end;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .parallax__wrapper span {
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .categorias-lists {
+        justify-content: center;
+    }
+}
+@media (max-width: 425px) {
+    .mainprev-title {
+        font-size: 16px;
+    }
+    .mainprev__wrapper {
+        background-size: 100% 100%;
+        background-image: url(https://sun9-88.userapi.com/impg/NcUKZt1LEG3Wnu6Pyhc5wSEuppgBDhmgaTxHaA/hnE46nX4YA0.jpg?size=1440x1440&quality=96&sign=6a19bbcbea5198dbd5fcb9b8ccf7523b&type=album);
+    }
+    .mainprev__body {
+        padding: 32px 18px;
+        justify-content: space-between;
+    }
+    .mainprev-btns {
+        align-items: flex-end;
+        justify-content: flex-end;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .parallax__wrapper span {
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .categorias-lists {
+        justify-content: center;
+    }
+}
 @media (max-width: 375px) {
     .mainprev-title {
         font-size: 16px;
