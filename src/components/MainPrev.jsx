@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import { Link } from 'react-router-dom';
 function MainPrev() {
   return (
     <section className="mainprev__wrapper">
@@ -9,9 +10,7 @@ function MainPrev() {
           athletes</span>
         <div className="mainprev-btns">
           <Stack spacing={2} direction="row">
-            <Button variant="contained">
-              <Link to="/categorias">Перейти к каталогу</Link>
-            </Button>
+            <Link to="/categorias"><Button variant="contained">Перейти к каталогу</Button></Link>
             <Button variant="outlined">Зарегистрироваться/Авторизораваться</Button>
           </Stack>
         </div>
