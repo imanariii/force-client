@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import {Sorting} from "./index";
 
-function Sort ({items, sortItems, addNewCart}) {
+function Sort ({items, sortItems, addNewCart, cart}) {
     const [filter, setFilter] = useState("");
     const [sortItem, setSortItem] = useState(sortItems[0]);
     return (
         <>
             <div className="filters--wrapper">
                     <div className="search-div filters--wrapper-item">
-                        <form action="" method="post" className="search">
+                        <div action="" method="post" className="search">
                             <input type="search"
                                    value={filter}
-                                   onChange={({ target: { value } }) => setFilter(value)}
+                                   onChange={(e) => setFilter(e.target.value)}
                                    id="filter"
                                    name="" placeholder="Поиск..." className="input"/>
-                        </form>
+                        </div>
                     </div>
                 <div className="filters--wrapper-item">
                     { sortItems.map((sortItem, i) => (
@@ -30,10 +30,10 @@ function Sort ({items, sortItems, addNewCart}) {
                     ))}
                 </div>
             </div>
-            <div>
-                Модели :
+            <div className="items-wrapper">
+                Модели:
                 <div className="items">
-                    <Sorting sortItems={sortItems} sortItem={sortItem} items={items} filter={filter} addNewCart={addNewCart} />
+                    <Sorting sortItems={sortItems} sortItem={sortItem} items={items} filter={filter} addNewCart={addNewCart} cart={cart}/>
                 </div>
             </div>
         </>

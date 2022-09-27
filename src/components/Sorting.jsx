@@ -2,7 +2,7 @@ import React from 'react';
 import {ShopCard} from "./index";
 
 
-function Sorting({sortItem, items, filter, addNewCart, sortItems }) {
+function Sorting({sortItem, items, filter, addNewCart, sortItems, cart }) {
     switch (sortItem) {
         case sortItems[1]:
             return (
@@ -12,14 +12,14 @@ function Sorting({sortItem, items, filter, addNewCart, sortItems }) {
                     })
                         .filter((product) => product.name.toLowerCase().includes(filter.toLowerCase()))
                         .map((product) => (
-                            <>
                                 <ShopCard key={product.id}
-                                      id={product.id}
-                                      name={product.name}
-                                      img={product.img}
-                                      price={product.price}
-                                      addNewCart={addNewCart} />
-                            </>
+                                          cart={cart}
+                                          id={product.id}
+                                          name={product.name}
+                                          img={product.img}
+                                          price={product.price}
+                                          addNewCart={addNewCart}
+                                          sliderimg={product.sliderimg}/>
                         ))}
                 </>
             )
@@ -31,14 +31,15 @@ function Sorting({sortItem, items, filter, addNewCart, sortItems }) {
                     })
                         .filter((product) => product.name.toLowerCase().includes(filter.toLowerCase()))
                         .map((product) => (
-                            <>
                                     <ShopCard key={product.id}
+                                              cart={cart}
                                               id={product.id}
                                               name={product.name}
                                               img={product.img}
                                               price={product.price}
-                                              addNewCart={addNewCart} />
-                            </>
+                                              addNewCart={addNewCart}
+                                              sliderimg={product.sliderimg}
+                                    />
                         ))}
                 </>
             )
@@ -50,14 +51,15 @@ function Sorting({sortItem, items, filter, addNewCart, sortItems }) {
                     })
                         .filter((product) => product.name.toLowerCase().includes(filter.toLowerCase()))
                         .map((product) => (
-                            <>
                                     <ShopCard key={product.id}
+                                              cart={cart}
                                               id={product.id}
                                               name={product.name}
                                               img={product.img}
                                               price={product.price}
-                                              addNewCart={addNewCart} />
-                            </>
+                                              addNewCart={addNewCart}
+                                              sliderimg={product.sliderimg}
+                                    />
                         ))}
                 </>
             )

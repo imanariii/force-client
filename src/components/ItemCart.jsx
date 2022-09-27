@@ -1,25 +1,70 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-function ItemCart ({removeLastCart, name, id, img, price}) {
+function ItemCart ({removeLastCart,product, setCart, setWarn}) {
+    const [countCart, setCountCart] = useState(product.count);
+    const newCountInc = countCart + 1;
+    const newCountDec = countCart - 1;
+    const incCount = () => {
+        setCountCart(countCart + 1)
+        setCart(cart =>
+            cart.map(item =>
+                item.id === product.id
+                    ? { ...item, count: newCountInc }
+                    : item
+            )
+        )
+    }
+    const decCount = () => {
+        setCountCart(countCart - 1)
+        setCart(cart =>
+            cart.map(item =>
+                item.id === product.id
+                    ? { ...item, count: newCountDec }
+                    : item
+            )
+        )
+    }
+
     return (
-        <div id={"product-" + id} className="cart">
+        <>
+        <div id={"product-" + product.id} className="cart">
             <div className="cart-image waves-effect waves-block waves-light">
-                <img className="activator" src={img} alt="" />
+                <img className="activator" src={product.img} alt="" />
             </div>
             <div className="cart-content">
                 <span className="card-title activator">
-                    <h5>{name}</h5>
+                    <h5>{product.name}</h5>
                 </span>
                 <span>
-                    <h4>Цена: {price} руб.</h4>
+                    <h4>Цена: {product.price} руб.</h4>
                 </span>
+                <div>
+                    <button onClick={() => {
+                        if (countCart===1) {
+                            removeLastCart(product.id)
+
+                        } else {
+                            setWarn(false)
+                            decCount()
+                        }
+                    }}>-</button>
+                    <span>  { countCart }  </span>
+                    <button onClick={()=>{
+                        if (countCart===3) {
+                            setWarn(true)
+                        } else {
+                            incCount()
+                        }
+                    }}>+</button>
+                </div>
             </div>
             <div className="cart-action">
                 <button className="btn-small" onClick={() => {
-                    removeLastCart(id);
+                    removeLastCart(product.id);
                 }}><span>Удалить из корзины </span></button>
             </div>
         </div>
+        </>
     );
 }
 

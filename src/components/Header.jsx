@@ -7,9 +7,9 @@ function Header ({cart}) {
         <header>
             <nav>
                 <div className="nav-wrapper container">
-                    <Link to="/"><h1>React Shop</h1></Link>
+                    <Link to="/" className="logo">FORCE</Link>
                     <Link to="/cart"><ShoppingCartOutlined style={{ fontSize: '32px' }} />
-                        <span className="cart-length">{cart.length}</span>
+                        <div className="cart-length">{cart.length}</div>
                     </Link>
 
                 </div>

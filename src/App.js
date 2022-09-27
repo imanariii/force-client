@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import data from "./db.json";
-import { Home, Cart} from './page';
+import { Home, Cart, Test} from './page';
 import {
     Routes,
     Route
@@ -18,13 +18,17 @@ function App() {
     }
     return (
         <Routes>
+            <Route path="/test" element={
+                <Test cart={cart}
+                /> } />
             <Route path="/cart" element={
                 <Cart cart={cart}
-                      items={data.sneaks}
-                      removeLastCart={removeLastCart}/>
-            } />
+                      removeLastCart={removeLastCart}
+                      setCart={setCart}
+                /> } />
             <Route path='/' element={
                 <Home cart={cart}
+                      setCart={setCart}
                       items={data.sneaks}
                       addNewCart={addNewCart}/>
             } />

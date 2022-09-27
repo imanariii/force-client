@@ -11,6 +11,7 @@ function Home({items, cart, addNewCart}) {
                 <Sort items={items}
                       sortItems={sortItems}
                       addNewCart={addNewCart}
+                      cart={cart}
                 />
             </main>
             <Footer />

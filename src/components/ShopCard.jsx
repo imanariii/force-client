@@ -1,64 +1,44 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { CloseOutlined } from "@ant-design/icons";
+import React, {useState} from 'react';
+import {ModalWindow, ButtonDone, ButtonInfo} from './index';
 
-function ShopCard({addNewCart, name, id, img, price}) {
+function ShopCard({addNewCart, name, id, img, price, sliderimg, cart}) {
     const [visible, setVisible] = React.useState(false);
+    const [modalCenter, setModalCenter] = useState(false);
+    const [activeSlide, setActiveSlide] = React.useState(1);
+    const count = 1;
+    const selectActiveSlide = (i) => {
+        setActiveSlide(i);
+    }
     return (
         <>
         <div id={"product-" + id} className="card">
+            <div className="card-content">
+                <ButtonInfo setVisible={setVisible} />
+            </div>
             <div>
                 <img className="card-img" src={img} alt="" />
             </div>
-            <div className="card-content">
-                <span className="card-title activator grey-text text-darken-4">
-                    {name}
-                </span>
-            </div>
+
             <div className="card-action">
-                    <button
-                        className="card-btn"
-                        onClick={() => {
-                            setVisible(true);
-                        }}>
-                        Заказать
-                    </button>
+                <ButtonDone id={id} addNewCart={addNewCart} name={name} img={img} price={price} cart={cart} count={count} />
             </div>
         </div>
-            {visible && (
-                <div className="wrapper-modal">
-                    <div className="modal">
-                        <div className="modal-img">
-                            <img src={img} alt="" />
-                        </div>
-                        <div className="modal-info">
-                            <div className="card-content">
-                                <span className="modal-title">
-                                    {name}
-                                </span>
-                                <p>Цена: {price} руб.</p>
-                            </div>
-                            <Link to="/cart">
-                                <button
-                                    className="card-btn"
-                                    onClick={() => {
-                                        addNewCart({id, name, price, img});
-                                    }}>
-                                    Добавить товар в корзину
-                                </button>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="close-modal">
-                        <button onClick={
-                            ()  => {
-                            setVisible(false);
-                        }}>
-                        <CloseOutlined />
-                        </button>
-                    </div>
-                </div>
-            )}
+            <ModalWindow
+                visible={visible}
+                setVisible={setVisible}
+                activeSlide={activeSlide}
+                modalCenter={modalCenter}
+                setModalCenter={setModalCenter}
+                setActiveSlide={setActiveSlide}
+                selectActiveSlide={selectActiveSlide}
+                addNewCart={addNewCart}
+                name={name}
+                id={id}
+                price={price}
+                img={img}
+                cart={cart}
+                sliderimg={sliderimg}
+                />
         </>
     );
 }
