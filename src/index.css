@@ -495,7 +495,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20%;
+    width: 300px;
     height: 300px;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -609,4 +609,32 @@ main {
         height: 300px;
     }
 
+}
+
+@media (max-width: 375px) {
+    .mainprev-title {
+        font-size: 16px;
+    }
+    .mainprev__wrapper {
+        background-size: 100% 100%;
+        background-image: url(https://sun9-88.userapi.com/impg/NcUKZt1LEG3Wnu6Pyhc5wSEuppgBDhmgaTxHaA/hnE46nX4YA0.jpg?size=1440x1440&quality=96&sign=6a19bbcbea5198dbd5fcb9b8ccf7523b&type=album);
+    }
+    .mainprev__body {
+        padding: 32px 18px;
+        justify-content: space-between;
+    }
+    .mainprev-btns {
+        align-items: flex-end;
+        justify-content: flex-end;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .parallax__wrapper span {
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .categorias-lists {
+        justify-content: center;
+    }
 }

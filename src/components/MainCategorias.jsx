@@ -6,14 +6,14 @@ function MainCategorias () {
         #1 среди молодежной одежды в Ростове-На-Дону
       </div>
       <div className="categorias-lists">
-        <div className="categorias-lists-item"><div><h3>Название категории</h3></div></div>
-        <div className="categorias-lists-item"><div><h3>Название категории</h3></div></div>
-        <div className="categorias-lists-item"><div><h3>Название категории</h3></div></div>
-        <div className="categorias-lists-item"><div><h3>Название категории</h3></div></div>
-        <div className="categorias-lists-item"><div><h3>Название категории</h3></div></div>
-        <div className="categorias-lists-item"><div><h3>Название категории</h3></div></div>
-        <div className="categorias-lists-item"><div><h3>Название категории</h3></div></div>
-        <div className="categorias-lists-item"><div><h3>Название категории</h3></div></div>
+        <div className="categorias-lists-item"><div><span>Название категории</span></div></div>
+        <div className="categorias-lists-item"><div><span>Название категории</span></div></div>
+        <div className="categorias-lists-item"><div><span>Название категории</span></div></div>
+        <div className="categorias-lists-item"><div><span>Название категории</span></div></div>
+        <div className="categorias-lists-item"><div><span>Название категории</span></div></div>
+        <div className="categorias-lists-item"><div><span>Название категории</span></div></div>
+        <div className="categorias-lists-item"><div><span>Название категории</span></div></div>
+        <div className="categorias-lists-item"><div><span>Название категории</span></div></div>
       </div>
     </div>
   )
