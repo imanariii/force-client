@@ -9,7 +9,9 @@ function MainPrev() {
           athletes</span>
         <div className="mainprev-btns">
           <Stack spacing={2} direction="row">
-            <Link to="/categorias"><Button variant="contained">Перейти к каталогу</Button></Link>
+            <Button variant="contained">
+              <Link to="/categorias">Перейти к каталогу</Link>
+            </Button>
             <Button variant="outlined">Зарегистрироваться/Авторизораваться</Button>
           </Stack>
         </div>
