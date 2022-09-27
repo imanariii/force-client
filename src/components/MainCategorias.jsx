@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 function MainCategorias () {
   return (
@@ -6,7 +7,7 @@ function MainCategorias () {
         #1 среди молодежной одежды в Ростове-На-Дону
       </div>
       <div className="categorias-lists">
-        <div className="categorias-lists-item"><div><h3>Название категории</h3></div></div>
+        <Link to="categorias"><div className="categorias-lists-item"><div><h3>Название категории</h3></div></div></Link>
         <div className="categorias-lists-item"><div><h3>Название категории</h3></div></div>
         <div className="categorias-lists-item"><div><h3>Название категории</h3></div></div>
         <div className="categorias-lists-item"><div><h3>Название категории</h3></div></div>
