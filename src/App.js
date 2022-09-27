@@ -18,7 +18,7 @@ function App() {
     }
     return (
         <Routes>
-            <Route path="/test" element={
+            <Route path="/" element={
                 <Test cart={cart}
                 /> } />
             <Route path="/cart" element={
@@ -26,7 +26,7 @@ function App() {
                       removeLastCart={removeLastCart}
                       setCart={setCart}
                 /> } />
-            <Route path='/' element={
+            <Route path='/categorias' element={
                 <Home cart={cart}
                       setCart={setCart}
                       items={data.sneaks}
