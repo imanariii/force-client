@@ -1,13 +1,4 @@
-export {default as Header } from './Header';
-export {default as Footer } from './Footer';
-export {default as ShopCard } from './ShopCard';
-export {default as Sort } from './Sort';
-export {default as Sorting } from './Sorting';
-export {default as CartList } from './CartList';
-export {default as ItemCart } from './ItemCart';
-export {default as ModalWindow } from './ModalWindow';
-export {default as ButtonDone } from './ButtonDone';
-export {default as ButtonInfo} from './ButtonInfo';
-export {default as MainPrev } from './MainPrev';
-export {default as Container} from './Container';
-export {default as MainCategorias} from './MainCategorias';
+export {default as Header} from './Header';
+export {default as CategoriasCard} from './CategoriasCard';
+export {default as Notification} from './Notification';
+export {default as Question} from './Question';

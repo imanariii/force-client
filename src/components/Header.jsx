@@ -1,21 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ShoppingCartOutlined } from '@ant-design/icons';
+import {Link} from "@mui/material";
 
-function Header ({cart}) {
+export default function Header () {
     return (
         <header>
-            <nav>
-                <div className="nav-wrapper container">
-                    <Link to="/" className="logo">FORCE</Link>
-                    <Link to="/cart"><ShoppingCartOutlined style={{ fontSize: '32px' }} />
-                        <div className="cart-length">{cart.length}</div>
-                    </Link>
-
-                </div>
-            </nav>
+            <div className="header__body container">
+                <Link className="logo" href="../">force</Link>
+            </div>
         </header>
     )
 }
-
-export default Header;
