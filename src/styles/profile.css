@@ -2,12 +2,19 @@
     margin: 0;
     padding: 0;
 }
+.light {
+    background-color: white;
+    color: #1870c7;
+}
+.dark {
+    background-color: #1d1d1d;
+    color: white;
+}
 .profile__wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 87vh;
-    background-color: #1870c7;
 }
 .profile__body {
     padding: 2rem 0;

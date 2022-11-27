@@ -1,11 +1,20 @@
-import {Link} from "@mui/material";
+import {Link, IconButton} from "@mui/material";
+import Fingerprint from '@mui/icons-material/Fingerprint';
+import { ThemeContext } from '../context/Theme'
 
-export default function Header () {
+export default function Header (props) {
     return (
-        <header>
-            <div className="header__body container">
-                <Link className="logo" href="../">force</Link>
-            </div>
-        </header>
-    )
+      <ThemeContext.Consumer>
+        {({theme, toggleTheme }) => (
+          <header className={`${theme}`}>
+              <div className='header__body container'>
+                  <Link className="logo" href="../">force</Link>
+                  <IconButton aria-label="fingerprint" color={theme === 'light' ? 'secondary' : 'success'} onClick={toggleTheme}>
+                    <Fingerprint />
+                  </IconButton>
+              </div>
+          </header>
+        )}
+      </ThemeContext.Consumer>
+  )
 }

@@ -2,16 +2,21 @@
     margin: 0;
     padding: 0;
 }
-
+.light {
+    background-color: white;
+    color: #1870c7;
+}
+.dark {
+    background-color: #1d1d1d;
+    color: white;
+}
 body {
     font-family: 'Roboto Mono', monospace;
-    background-color: black;
 }
 .container {
     padding: 0 10%;
 }
 header {
-    background-color: white;
     padding: 1rem 2rem;
     font-size: 1.4rem;
 }
@@ -34,9 +39,8 @@ header {
     background-image: url("https://sun9-15.userapi.com/impg/Xh08JwL0FKHa3Ujmoth2AQEmz-JqN8ha42vd6Q/oM4gwbws9h0.jpg?size=857x584&quality=96&sign=98dc106b47d87d157a62d0b48ec5d002&type=album");
 }
 
-.body__preview {
+.body__preview-light {
     text-transform: uppercase;
-    color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -44,6 +48,19 @@ header {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.57);
+    color: white;
+}
+
+.body__preview-dark {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.57);
+    color: black;
 }
 
 .body__preview div {
@@ -56,9 +73,15 @@ header {
 .body__preview a {
     color: white;
 }
-.wrapper__free-delivery {
+.wrapper__free-delivery-light {
     width: 100%;
     background-color: white;
+    color: black;
+}
+.wrapper__free-delivery-dark {
+    width: 100%;
+    background-color: #1d1d1d;
+    color: white
 }
 .body__free-delivery {
     padding: 3rem 3rem;
@@ -73,7 +96,7 @@ header {
     background-size: cover;
     background-image: url('https://sun9-33.userapi.com/impg/uzSurEe77lvv1aqJAtBBGzlo8UyP92a8OXpwEQ/j8jCiEfqTf0.jpg?size=876x594&quality=96&sign=968178c60e35bb19e5b57fb941c26692&type=album');
 }
-.body__categories {
+.body__categories-light {
     background-color: rgba(0, 0, 0, 0.85);
     padding: 2rem 3rem;
     display: flex;
@@ -82,6 +105,14 @@ header {
     color: white;
 }
 
+.body__categories-dark {
+    background-color: rgba(250, 250, 250, 0.85);
+    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
 .categories-list {
     display: flex;
     flex-wrap: wrap;
@@ -102,7 +133,7 @@ header {
     background-image: url("https://sun9-88.userapi.com/impg/NcUKZt1LEG3Wnu6Pyhc5wSEuppgBDhmgaTxHaA/hnE46nX4YA0.jpg?size=1440x1440&quality=96&sign=6a19bbcbea5198dbd5fcb9b8ccf7523b&type=album");
 }
 
-.body__categories-card {
+.body__categories-card-light {
     transition: all 0.5s ease-in-out;
     display: flex;
     flex-direction: column;
@@ -113,8 +144,22 @@ header {
     height: 100%;;
     background-color: rgba(25, 32, 44, 0.98);
 }
-.body__categories-card:hover {
+.body__categories-card-dark {
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;;
+    background-color: rgba(188, 193, 208, 0.98);
+}
+.body__categories-card-light:hover {
     background-color: rgba(25, 32, 44, 0.57);
+}
+.body__categories-card-dark:hover {
+    background-color: rgba(188, 193, 208, 0.57);
 }
 .categories-card-txt {
     display: flex;
@@ -125,11 +170,14 @@ header {
     opacity: 0;
     width: 80%;
 }
-.body__categories-card:hover .categories-card-txt {
+.body__categories-card-light:hover .categories-card-txt {
     margin-bottom: 0;
     opacity: 1;
 }
-
+.body__categories-card-dark:hover .categories-card-txt {
+    margin-bottom: 0;
+    opacity: 1;
+}
 .wrapper__quest-prev {
     background-color: #1d1d1d;
 }

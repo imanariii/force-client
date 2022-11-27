@@ -2,12 +2,19 @@
     margin: 0;
     padding: 0;
 }
+.light {
+    background-color: white;
+    color: #1870c7;
+}
+.dark {
+    background-color: #1d1d1d;
+    color: white;
+}
 .sign__wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 87vh;
-    background-color: #1870c7;
 }
 .sign__body {
     padding: 2rem 4rem;
@@ -66,8 +73,6 @@
     align-items: flex-end;
     transition: all 0.5s ease-in-out;
     width: 60vw;
-    height: 20vw;
-    color: white;
-    background-color: #1870c7;
+    min-height: fit-content;
     padding: 1rem;
 }
