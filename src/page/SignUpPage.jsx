@@ -2,17 +2,17 @@ import React from 'react';
 import {Header} from "../components";
 import {useState} from "react";
 import {
-    Button,
     FormControl,
     IconButton,
     InputAdornment,
     InputLabel,
-    Link,
     OutlinedInput
 } from "@mui/material";
+import 'react-notifications/lib/notifications.css';
 
 import {Visibility, VisibilityOff} from "@mui/icons-material";
 import {FetchSignUp} from '../utils/FetchSignUp'
+import { Api } from '../context/Api';
 
 export default function SignUpPage () {
     const [values, setValues] = useState({
@@ -34,6 +34,8 @@ export default function SignUpPage () {
     };
 
     return (
+      <Api.Consumer>
+        {context => (
         <>
             <Header />
             <main>
@@ -74,15 +76,15 @@ export default function SignUpPage () {
                                     label="Ваш пароль:"
                                 />
                             </FormControl>
-                            <Link href="../profile"><Button variant="contained" onClick={(event)=>{
-                                FetchSignUp(values.login, values.password);
-                                event.preventDefault();
-                            }}>Зарегистрироваться</Button></Link>
-                            <Link href="../signin"><Button variant="outlined">У вас уже есть аккаунт</Button></Link>
+                            <FetchSignUp login={values.login} password={values.password} context={context} />
                     </div>
                 </div>
             </main>
             <Header />
         </>
+    )
+}
+
+</Api.Consumer>
     )
 }

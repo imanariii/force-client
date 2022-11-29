@@ -1,12 +1,12 @@
 import { Button } from "@mui/material";
-import { ThemeContext } from '../context/Theme'
+import { Api } from '../context/Api'
 
 const CategoriasCard = (props) => {
   return (
-    <ThemeContext.Consumer>
-      {theme => (
+    <Api.Consumer>
+      {context => (
         <div className="wrapper__categories-card">
-          <div className={`body__categories-card-${theme.theme}`}>
+          <div className={`body__categories-card-${context.theme}`}>
             <div className="categories-card-txt">
               <h3>Название категории</h3>
               <Button variant="contained">Перейти</Button>
@@ -15,7 +15,7 @@ const CategoriasCard = (props) => {
           </div>
         </div>
       )}
-    </ThemeContext.Consumer>
+    </Api.Consumer>
   )
 }
 
