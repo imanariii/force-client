@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from "react";
-import { ErrorPage, MainPage, ProfilePage, QuestionsPage, SignInPage, SignUpPage } from "./page";
+import { ErrorPage, MainPage, ProfilePage, QuestionsPage, SignInPage, SignUpPage } from "./pages";
 
 import {
     createBrowserRouter,
@@ -103,7 +103,7 @@ export function App() {
                 {
                     path: 'signin',
                     errorElement: <ErrorPage />,
-                    element: (typeof token === 'string') ? (
+                    element: (state.isAuth) ? (
                       <ProfilePage />
                     ) : (
                       <>
@@ -115,7 +115,7 @@ export function App() {
                 {
                     path: 'signup',
                     errorElement: <ErrorPage />,
-                    element: (typeof token === 'string') ? (
+                    element: (state.isAuth) ? (
                           <ProfilePage />
                     ) : (
                       <>

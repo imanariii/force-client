@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     transition: all 250ms ease-in-out;
+    scroll-behavior: smooth;
 }
 * a {
     text-decoration: none;

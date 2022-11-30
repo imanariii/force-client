@@ -20,7 +20,10 @@ export default function MainPage (props) {
                       }
                       <div>
                         <Button variant="contained" id="btn">Перейти к каталогу</Button>
-                        <Link to="signup"><Button variant="outlined" id="outlined">Зарегистрироваться</Button></Link>
+                        { context.isAuth
+                          ? <Link to="profile"><Button variant="outlined" id="outlined">Войти в профиль</Button></Link>
+                          : <Link to="signup"><Button variant="outlined" id="outlined">Зарегистрироваться</Button></Link>
+                        }
                       </div>
                     </div>
                   </div>
