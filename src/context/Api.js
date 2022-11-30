@@ -2,10 +2,12 @@ import { createContext } from "react";
 
 
 export const Api = createContext({
-  theme: 'light',
+  theme: 'dark',
   toggleTheme: () => {},
   user: {},
   setUser: () => {},
   resetUser: () => {},
-  createNotification: () => {}
+  notifyErr: () => {},
+  notifySuc: () => {},
+  isAuth: false
 });

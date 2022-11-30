@@ -38,11 +38,10 @@ export function App() {
             }))
         }
 
-        const notify = (props) => {
-          console.log(props)
+        const notifyErr = (props) => {
           toast.error(props, {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -51,14 +50,45 @@ export function App() {
             theme: "dark",
           })
         }
+        const notifySuc = (props) => {
+          toast.success(props, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          })
+        }
+        const toggleAuth = (props) => {
+            setState( state => ({
+              ...state,
+              isAuth: props
+            }))
+        }
         const [state, setState] = useState({
-            theme: 'light',
+            theme: 'dark',
+            isAuth: false,
+            toggleAuth: toggleAuth,
             toggleTheme: toggleTheme,
             user: {},
             setUser: setUser,
             resetUser: resetUser,
-            notify: notify
+            notifyErr: notifyErr,
+            notifySuc: notifySuc
         });
+
+  useEffect(()=>{
+    if(typeof token === 'string') {
+      const user = jwt_decode(token);
+      if(JSON.stringify(state.user) === JSON.stringify({})) {
+        state.toggleAuth(true)
+        state.setUser(user);
+      }
+    }
+  }, [state, token]);
 
     const router = createBrowserRouter([
         {
@@ -97,10 +127,10 @@ export function App() {
                 {
                     path: 'profile',
                     errorElement: <ErrorPage />,
-                    element: (typeof token !== 'string') ? (
-                          <MainPage />
+                    element: (state.isAuth) ? (
+                          <ProfilePage />
                     ) : (
-                      <ProfilePage />
+                      <MainPage />
                     )
                 },
                 {
@@ -111,15 +141,6 @@ export function App() {
             ]
         }
     ])
-
-        useEffect(()=>{
-            if(typeof token === 'string') {
-                const user = jwt_decode(token);
-                if(JSON.stringify(state.user) === JSON.stringify({})) {
-                    state.setUser(user);
-                }
-            }
-        }, [state, token]);
     return (
       <Api.Provider value={state}>
           <RouterProvider router = {router} />

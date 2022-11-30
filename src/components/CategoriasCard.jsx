@@ -9,7 +9,7 @@ const CategoriasCard = (props) => {
           <div className={`body__categories-card-${context.theme}`}>
             <div className="categories-card-txt">
               <h3>Название категории</h3>
-              <Button variant="contained">Перейти</Button>
+              <Button id="btn" variant="contained">Перейти</Button>
               <p>Здесь должна распологаться информация о карточке категории.</p>
             </div>
           </div>

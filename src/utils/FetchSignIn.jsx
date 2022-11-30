@@ -10,18 +10,28 @@ export function FetchSignIn({login, password, context}) {
     try {
       const { data } = await axios.post('http://localhost:5000/auth/login', {email: login, password: password})
       Cookies.set('token', data.token)
-      navigate("../profile");
+      context.notifySuc('Успешно')
+      setTimeout(() =>{
+        context.toggleAuth(true);
+        navigate('../profile')
+      }, 3000)
     } catch (error) {
-      context.notify(error.response.data.message)
+      console.log(error)
+      if (typeof error.response.data.message === 'string') {
+        context.notifyErr(error.response.data.message)
+      } else {
+        error.response.data.map(message=>context.notifyErr(message))
+      }
+
     }
   }
 
   return (
-        <>
-          <Button variant="contained" onClick={()=>{
+        <div style={{display: 'flex',flexDirection: 'column' , gap: '1rem', width: '70%'}}>
+          <Button id="btn" style={{width: '100%'}} variant="contained" onClick={()=>{
             axiosIn(login, password);
           }}>Войти</Button>
-          <Link to="../signup"><Button variant="outlined">У вас нет аккаунта</Button></Link>
-        </>
+          <Link style={{width: '100%'}} to="../signup"><Button id="btn" style={{width: '100%'}} variant="outlined">У вас нет аккаунта</Button></Link>
+        </div>
   )
 }

@@ -32,10 +32,11 @@ export default function SignInPage () {
             <>
                 <Header />
                 <main>
-                    <div className="sign__wrapper">
-                        <div className="sign__body">
+                    <div className={`sign__wrapper-${context.theme}`}>
+                        <div className={`sign__body-${context.theme}`}>
                             <h1>Авторизация</h1>
-                            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                            <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '70%'}}>
+                            <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
                                 <InputLabel htmlFor="outlined-adornment-password">Email</InputLabel>
                                 <OutlinedInput
                                   id="outlined-adornment-email"
@@ -46,7 +47,7 @@ export default function SignInPage () {
                                   onChange={handleChange('login')}
                                 />
                             </FormControl>
-                            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                            <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
                                 <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                                 <OutlinedInput
                                   id="outlined-adornment-password"
@@ -69,6 +70,7 @@ export default function SignInPage () {
                                   label="Ваш пароль:"
                                 />
                             </FormControl>
+                            </div>
                             <FetchSignIn login={values.login} password={values.password} context={context} />
                         </div>
                     </div>

@@ -10,24 +10,48 @@
     background-color: #1d1d1d;
     color: white;
 }
-.sign__wrapper {
+.sign__wrapper-light {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
     min-height: 87vh;
 }
-.sign__body {
+.sign__wrapper-dark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(65, 65, 65);
+    min-height: 87vh;
+}
+.sign__body-light {
     padding: 2rem 4rem;
     width: 60vw;
-    background-color: white;
     height: 50%;
     display: flex;
+    border-radius: 12px;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.sign__body-dark {
+    padding: 2rem 4rem;
+    width: 60vw;
+    height: 50%;
+    display: flex;
+    gap: 2rem;
+    color: white;
+    background-color: rgb(65, 65, 65);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    border-radius: 12px;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
-.sign__body h1 {
-    margin-bottom: 4rem;
+.sign__body-dark h1 {
+    color: rgba(234, 234, 234, 0.87);
 }
 .sign__body div {
     margin-bottom: 12px;
@@ -38,30 +62,6 @@
     padding: 6px 18px;
 }
 
-.popup__wrapper {
-    position: fixed;
-    bottom: 120px;
-    right: 10px;
-    transition: 1s;
-    color: white;
-}
-.success {
-    background-color: rgba(33, 255, 0, 0.68);
-    opacity: 1;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 16px;
-}
-.error {
-    background-color: rgba(114, 25, 25, 0.66);
-    opacity: 1;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 16px;
-}
-.default {
-    opacity: 0;
-}
 .questions__list, .question-item {
     display: flex;
     flex-direction: column;
@@ -75,4 +75,30 @@
     width: 60vw;
     min-height: fit-content;
     padding: 1rem;
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.profile-content div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.profile-content div:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (min-width: 770px) and (max-width: 1080px) {
+    .sign__body-light, .sign__body-dark {
+        width: 50%;
+    }
+}
+@media (min-width: 1081px) and (max-width: 1980px) {
+    .sign__body-light, .sign__body-dark {
+        width: 40%;
+    }
 }
