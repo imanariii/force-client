@@ -1,5 +1,5 @@
 import { Header} from "../components";
-import React, {useState} from "react";
+import React, {} from "react";
 import '../styles/sign.css';
 import { Button } from "@mui/material";
 import Cookies from 'js-cookie';
@@ -7,7 +7,6 @@ import { Api } from '../context/Api'
 import { Link } from "react-router-dom";
 
 const ProfilePage = () => {
-    const [isAdmin, setIsAdmin] = useState(false);
     return (
       <Api.Consumer>
         {context => (
@@ -21,20 +20,12 @@ const ProfilePage = () => {
                   <div className="profile-content">
                     <div>
                       <p className="content-title">Ваш E-mail : {context.user.email}</p>
-                      <p className="content-role">Ваша роли : { context.user.roles.map(role=>{
-                        if(role.value === "ADMIN") {
-                          setIsAdmin(true);
-                          return role.value
-                        } else {
-                          setIsAdmin(false);
-                          return role.value
-                        }
-                      }) }</p>
+                      <p className="content-role">Ваша роли : { context.isAdmin ? 'Admin' : 'Пользователь' }</p>
                       <p className="content-address">Ваш адрес : </p>
                     </div>
                     <div>
-                      { isAdmin &&
-                        <Link to="../adminpanel">
+                      { context.isAdmin &&
+                        <Link to="../admin-panel">
                           <Button id="btn" variant="contained">
                             Войти в Админ-панель
                           </Button>
@@ -44,9 +35,12 @@ const ProfilePage = () => {
                         <Button id="btn"
                                 variant="contained"
                                 onClick={()=> {
+                                  Cookies.remove('token')
                                   context.resetUser();
-                                  context.toggleAuth(false)
-                                  Cookies.remove('token')}}>
+                                  context.toggleIsAuth(false);
+                                  context.toggleIsAdmin(false);
+                                  context.removeToken();
+                                }}>
                           Выйти из аккаунта
                         </Button>
                       </Link>

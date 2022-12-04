@@ -5,33 +5,30 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 
 export function FetchSignIn({login, password, context}) {
-  const navigate = useNavigate();
-  const axiosIn = async (login, password) => {
-    try {
-      const { data } = await axios.post('http://localhost:5000/auth/login', {email: login, password: password})
-      Cookies.set('token', data.token)
-      context.notifySuc('Успешно')
-      setTimeout(() =>{
-        context.toggleAuth(true);
-        navigate('../profile')
-      }, 3000)
-    } catch (error) {
-      console.log(error)
-      if (typeof error.response.data.message === 'string') {
-        context.notifyErr(error.response.data.message)
-      } else {
-        error.response.data.map(message=>context.notifyErr(message))
-      }
-
+    const navigate = useNavigate();
+    const axiosIn = async (login, password) => {
+        try {
+            const { data } = await axios.post('http://localhost:5000/auth/login', {email: login, password: password})
+            context.notifySuc('Успешно')
+            setTimeout(() =>{
+                Cookies.set('token', data.token)
+                context.setToken(data.token);
+                navigate('../profile')
+            }, 3000)
+        } catch (error) {
+            console.log(error)
+            if (typeof error.response.data.message === 'string') {
+                context.notifyErr(error.response.data.message)
+            } else {
+                error.response.data.map(message=>context.notifyErr(message))
+            }
+        }
     }
-  }
 
-  return (
-        <div style={{display: 'flex',flexDirection: 'column' , gap: '1rem', width: '70%'}}>
-          <Button id="btn" style={{width: '100%'}} variant="contained" onClick={()=>{
-            axiosIn(login, password);
-          }}>Войти</Button>
+    return (
+      <div style={{display: 'flex',flexDirection: 'column' , gap: '1rem', width: '70%'}}>
+          <Button id="btn" style={{width: '100%'}} variant="contained" onKeyDown={function(event){event.code === 'KeyEnter' && axiosIn(login, password)}} onClick={()=> axiosIn(login, password)}>Войти</Button>
           <Link style={{width: '100%'}} to="../signup"><Button id="btn" style={{width: '100%'}} variant="outlined">У вас нет аккаунта</Button></Link>
-        </div>
-  )
+      </div>
+    )
 }

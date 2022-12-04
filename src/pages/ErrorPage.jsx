@@ -2,9 +2,10 @@ import { Header } from "../components";
 import { Api } from '../context/Api';
 import '../styles/sign.css';
 import { Button } from "@mui/material";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import catGif from '../assets/error_cat.gif'
 export default function ErrorPage () {
+    const navigate = useNavigate();
     return (
       <Api.Consumer>
         {context => (
@@ -19,7 +20,7 @@ export default function ErrorPage () {
                     <h3>произошла ошибка или страницы не существует.</h3>
                     <br/>
                   </div>
-                  <Link to="../"><Button id="btn" variant='contained'>Вернуться на главную страницу</Button></Link>
+                  <Button id="btn" variant='contained' onClick={()=>navigate(-1)}>Вернуться назад</Button>
                 </div>
               </div>
             </main>

@@ -9,10 +9,10 @@ export function FetchSignUp({login, password, context}) {
     const axiosUp = async () => {
         try {
             const { data } = await axios.post('http://localhost:5000/auth/registration', {email: login, password: password})
-            Cookies.set('token', data.token)
             context.notifySuc('Успешно')
             setTimeout(() =>{
-                context.toggleAuth(true);
+                Cookies.set('token', data.token)
+                context.setToken(data.token)
                 navigate("../profile");
             }, 3000)
         } catch (error) {

@@ -9,5 +9,11 @@ export const Api = createContext({
   resetUser: () => {},
   notifyErr: () => {},
   notifySuc: () => {},
-  isAuth: false
+  token: null,
+  removeToken: () => {},
+  setToken: () => {},
+  isAuth: false,
+  toggleIsAuth: () => {},
+  isAdmin: false,
+  toggleIsAdmin: () => {}
 });
