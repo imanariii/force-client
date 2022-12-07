@@ -1,27 +1,25 @@
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import RestoreIcon from "@mui/icons-material/Restore";
-import PeopleIcon from "@mui/icons-material/People";
-import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
-import React from "react";
+import { BottomNavigation, BottomNavigationAction } from "@mui/material";
+import AddBusinessTwoToneIcon from '@mui/icons-material/AddBusinessTwoTone';
+import ShoppingBagTwoToneIcon from '@mui/icons-material/ShoppingBagTwoTone';
+import SellTwoToneIcon from '@mui/icons-material/SellTwoTone';
 
 const BottomNav = ({handleChange, value}) => {
   return (
     <BottomNavigation sx={{ width: 500 }} value={value} onChange={handleChange} style={{background: 'transparent'}}>
       <BottomNavigationAction
-        label="История"
-        value="recents"
-        icon={<RestoreIcon />}
+        label="Бренды"
+        value="brands"
+        icon={<AddBusinessTwoToneIcon />}
       />
       <BottomNavigationAction
-        label="Пользователи"
-        value="users"
-        icon={<PeopleIcon />}
+        label="Категории"
+        value="categories"
+        icon={<SellTwoToneIcon />}
       />
       <BottomNavigationAction
         label="Продукты"
         value="products"
-        icon={<ProductionQuantityLimitsIcon />}
+        icon={<ShoppingBagTwoToneIcon />}
       />
     </BottomNavigation>
   )

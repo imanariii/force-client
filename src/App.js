@@ -26,8 +26,6 @@ export function App() {
     resetUser:  () => setState( state => ({ ...state, user: {} })),
     isAuth: false,
     toggleIsAuth: props => setState( state => ({...state, isAuth: props })),
-    isAdmin: false,
-    toggleIsAdmin: props => setState( state => ({...state, isAdmin: props })),
     notifyErr: props => toast.error(props, {
       position: "top-right",
       autoClose: 5000,
@@ -100,7 +98,7 @@ export function App() {
               {
                   path: 'admin-panel',
                   errorElement: <ErrorPage />,
-                  element: (state.isAdmin) ? (
+                  element: (state.user.role === 'ADMIN') ? (
                       <AdminPanelPage />
                   ) : (
                       <MainPage />
@@ -117,7 +115,6 @@ export function App() {
         state.toggleIsAuth(true);
         state.setToken(token);
         state.setUser(user);
-        user.roles.map(role=>role.value === 'Пользователь' ? state.toggleIsAdmin(false) : state.toggleIsAdmin(true))
       }
     }
   }, [state, token]);

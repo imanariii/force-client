@@ -1,5 +1,6 @@
 import {IconButton} from "@mui/material";
-import Fingerprint from '@mui/icons-material/Fingerprint';
+import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
+import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
 import { Api } from '../context/Api'
 import { Link } from "react-router-dom";
 
@@ -11,8 +12,11 @@ export default function Header (props) {
             <header className={`${theme}`}>
               <div className='header__body container'>
                 <Link className="logo" to="../">force</Link>
-                <IconButton aria-label="fingerprint" color={theme === 'light' ? 'secondary' : 'success'} onClick={toggleTheme}>
-                  <Fingerprint />
+                <IconButton color={theme === 'light' ? 'secondary' : 'success'} onClick={toggleTheme}>
+                  {theme === 'light' ?
+                    <DarkModeTwoToneIcon /> :
+                    <LightModeTwoToneIcon />
+                  }
                 </IconButton>
               </div>
             </header>

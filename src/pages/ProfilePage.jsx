@@ -20,11 +20,11 @@ const ProfilePage = () => {
                   <div className="profile-content">
                     <div>
                       <p className="content-title">Ваш E-mail : {context.user.email}</p>
-                      <p className="content-role">Ваша роли : { context.isAdmin ? 'Admin' : 'Пользователь' }</p>
+                      <p className="content-role">Ваша роли : { context.user.role }</p>
                       <p className="content-address">Ваш адрес : </p>
                     </div>
                     <div>
-                      { context.isAdmin &&
+                      { context.user.role === 'ADMIN' &&
                         <Link to="../admin-panel">
                           <Button id="btn" variant="contained">
                             Войти в Админ-панель

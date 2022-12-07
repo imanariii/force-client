@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react"
+import React from "react";
 import Cookies from 'js-cookie'
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
@@ -8,7 +8,7 @@ export function FetchSignIn({login, password, context}) {
     const navigate = useNavigate();
     const axiosIn = async (login, password) => {
         try {
-            const { data } = await axios.post('http://localhost:5000/auth/login', {email: login, password: password})
+            const { data } = await axios.post('http://localhost:5000/api/user/login', {email: login, password: password})
             context.notifySuc('Успешно')
             setTimeout(() =>{
                 Cookies.set('token', data.token)
@@ -24,10 +24,9 @@ export function FetchSignIn({login, password, context}) {
             }
         }
     }
-
     return (
       <div style={{display: 'flex',flexDirection: 'column' , gap: '1rem', width: '70%'}}>
-          <Button id="btn" style={{width: '100%'}} variant="contained" onKeyDown={function(event){event.code === 'KeyEnter' && axiosIn(login, password)}} onClick={()=> axiosIn(login, password)}>Войти</Button>
+          <Button id="btn" style={{width: '100%'}} variant="contained" onClick={()=> axiosIn(login, password)}>Войти</Button>
           <Link style={{width: '100%'}} to="../signup"><Button id="btn" style={{width: '100%'}} variant="outlined">У вас нет аккаунта</Button></Link>
       </div>
     )
