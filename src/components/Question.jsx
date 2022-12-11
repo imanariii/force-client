@@ -6,7 +6,7 @@ const Question = ({question}) => {
     <div className="question-item">
       <h3>{question.title}</h3>
       <Button variant="contained" onClick={()=>setQuest(!quest)}>{ quest ? 'Закрыть ответ' : 'Посмотреть ответ' }</Button>
-      <h4>{quest && question.otvet}</h4>
+      <h4 style={{opacity: `${quest ? 1 : 0}`}}>{question.otvet}</h4>
     </div>
   )
 }

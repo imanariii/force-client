@@ -1,7 +1,10 @@
 import { Header, Question } from "../components";
 import '../styles/sign.css';
+import { useContext } from "react";
+import { Api } from "../context/Api";
 
 const QuestionsPage = () => {
+  const state = useContext(Api)
   const questions = [
     {
       title: 'Сколько стоит доставка по Ростову-На-Дону?',
@@ -21,8 +24,8 @@ const QuestionsPage = () => {
   <>
     <Header />
     <main>
-      <div className="sign__wrapper">
-        <div className="sign__body">
+      <div className={`sign__wrapper-${state.theme}`}>
+        <div className={`sign__body-${state.theme}`}>
           <h1>Ответы на частые вопросы</h1>
           <div className="questions__list">
             {questions.map(question=> <Question question={question} />) }

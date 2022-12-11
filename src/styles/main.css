@@ -282,7 +282,7 @@ footer {
         align-items: center;
         justify-content: center;
     }
-    .wrapper__quest-prev-dark, .wrapper__quest-prev-dark {
+    .wrapper__quest-prev-dark, .wrapper__quest-prev-light {
         padding: 2rem 3rem;
     }
     .body__quest-prev {

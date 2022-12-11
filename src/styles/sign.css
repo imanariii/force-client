@@ -129,6 +129,26 @@
     background-color: #414141;
     color: #1870c7;
 }
+@media (min-width: 360px) and (max-width: 475px) {
+    .sign__wrapper-light, .sign__wrapper-dark {
+        padding: 2rem 1rem;
+    }
+    .sign__body-light, .sign__body-dark {
+        width: 100%;
+        padding: 24px 12px;
+    }
+    .questions__list {
+        width: 100%;
+    }
+    .question-item {
+        width: 100%;
+    }
+    .question-item h4 {
+        display: block;
+        opacity: 0;
+    }
+}
+
 @media (min-width: 770px) and (max-width: 1080px) {
     .sign__body-light, .sign__body-dark {
         width: 50%;
