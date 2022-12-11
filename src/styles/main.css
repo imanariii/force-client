@@ -248,3 +248,47 @@ footer {
     display: flex;
     justify-content: space-between;
 }
+
+@media (min-width: 360px) and (max-width: 425px) {
+    .title {
+        font-size: 36px;
+        letter-spacing: 1.5rem;
+    }
+    .body__preview-dark, .body__preview-light {
+        padding: 0 1rem;
+    }
+    .btns {
+        flex-direction: column;
+    }
+    .btns button {
+        width: 300px;
+    }
+
+    .body__categories-dark span {
+
+        margin-bottom: 24px;
+    }
+    .categories-list {
+        padding: 0;
+    }
+    .wrapper__categories-card-light, .wrapper__categories-card-dark {
+        width: 200px;
+        height: 200px;
+    }
+    .body__categories-card-light, .body__categories-card-dark {
+        display: flex;
+        padding: 24px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .wrapper__quest-prev-dark, .wrapper__quest-prev-dark {
+        padding: 2rem 3rem;
+    }
+    .body__quest-prev {
+        padding: 0;
+    }
+    .body__quest-prev button {
+        width: 300px;
+    }
+}

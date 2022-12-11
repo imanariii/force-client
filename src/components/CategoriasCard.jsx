@@ -11,7 +11,6 @@ const CategoriasCard = ({id, name}) => {
             <div className="categories-card-txt">
               <h3>{name}</h3>
               <Link to="../category"><Button id="btn" variant="contained">Перейти</Button></Link>
-              <p>Здесь должна распологаться информация о карточке категории.</p>
             </div>
           </div>
         </div>

@@ -34,7 +34,7 @@ export default function MainPage (props) {
                         <h1 className="title">be first</h1> :
                         <h1 className="title">be strong</h1>
                       }
-                      <div>
+                      <div className="btns">
                         <Link to="../category"><Button variant="contained" id="btn">Перейти к каталогу</Button></Link>
                         { context.isAuth
                           ? <Link to="../profile"><Button variant="outlined" id="outlined">Войти в профиль</Button></Link>
