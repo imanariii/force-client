@@ -11,6 +11,7 @@ import Cookies from 'js-cookie'
 import jwt_decode from "jwt-decode";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
 export function App() {
   const token = Cookies.get('token');
@@ -25,6 +26,9 @@ export function App() {
     setUser: props => setState(state => ({ ...state, user: props })),
     resetUser:  () => setState( state => ({ ...state, user: {} })),
     isAuth: false,
+    brands: [],
+    categories: [],
+    products: [],
     toggleIsAuth: props => setState( state => ({...state, isAuth: props })),
     notifyErr: props => toast.error(props, {
       position: "top-right",
@@ -45,6 +49,33 @@ export function App() {
       progress: undefined,
       theme: "dark",
       }),
+    getAllBrands: props => {
+      axios.get('http://localhost:5000/api/brand')
+        .then(function (res) {
+          setState(state => ({...state, brands: res.data}))
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    getAllCategories: props => {
+      axios.get('http://localhost:5000/api/category')
+        .then(function (res) {
+          setState(state => ({...state, categories: res.data}))
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    getAllProducts: props => {
+      axios.get('http://localhost:5000/api/products')
+        .then(function (res) {
+          setState(state => ({...state, products: res.data}))
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
   });
 
   const router = createBrowserRouter([
@@ -111,6 +142,11 @@ export function App() {
   useEffect(()=>{
     if(typeof token === 'string') {
       const user = jwt_decode(token);
+      if (state.brands.length <= 0) {
+        state.getAllBrands()
+        state.getAllCategories()
+        state.getAllProducts()
+      }
       if(JSON.stringify(state.user) === JSON.stringify({})) {
         state.toggleIsAuth(true);
         state.setToken(token);

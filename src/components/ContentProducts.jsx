@@ -1,22 +1,27 @@
-// import { Button } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
+import { Api } from "../context/Api";
+import { Image } from "react-bootstrap";
 
 const ContentProducts = () => {
-  const [products, setProducts] = useState([]);
-  const getProductAll = async () => {
-    const {data} = await axios.get('http://localhost:5000/api/products')
-    console.log(data)
-    setProducts(data.rows)
-  }
-  useEffect(()=>{
-    getProductAll()
-  }, []);
+  const state = useContext(Api)
+  console.log(state.brands)
   return (
     <>
-      <h1>Добавить продукты</h1>
-      {products.rows && products.rows.map(elem => (
-        <h3>{elem}</h3>
+      <h1>Все продукты:</h1>
+      { state.products && state.products.rows.map(item => (
+          <div className={`card card-${state.theme}`} style={{width: 150, cursor: 'pointer'}} border={state.theme}>
+            <Image width={150} height={150} src={'http://localhost:5000/' + item.img}/>
+            <div className="card-info">
+              <div className="card-brand">Brand: {state.brands.map(brand=>brand.id === item.brandId ? brand.name : '')}</div>
+              <div className="card-rating">
+                Rating: {item.rating}
+              </div>
+              <div className="card-price">
+                Price: {item.price}
+              </div>
+            </div>
+            <div>Name: {item.name}</div>
+          </div>
       ))}
     </>
   )

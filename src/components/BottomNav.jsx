@@ -2,6 +2,7 @@ import { BottomNavigation, BottomNavigationAction } from "@mui/material";
 import AddBusinessTwoToneIcon from '@mui/icons-material/AddBusinessTwoTone';
 import ShoppingBagTwoToneIcon from '@mui/icons-material/ShoppingBagTwoTone';
 import SellTwoToneIcon from '@mui/icons-material/SellTwoTone';
+import NoteAddTwoToneIcon from '@mui/icons-material/NoteAddTwoTone';
 
 const BottomNav = ({handleChange, value}) => {
   return (
@@ -15,6 +16,11 @@ const BottomNav = ({handleChange, value}) => {
         label="Категории"
         value="categories"
         icon={<SellTwoToneIcon />}
+      />
+      <BottomNavigationAction
+        label="Создать продукт"
+        value="add-products"
+        icon={<NoteAddTwoToneIcon />}
       />
       <BottomNavigationAction
         label="Продукты"

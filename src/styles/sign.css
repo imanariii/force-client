@@ -115,6 +115,20 @@
     flex-direction: column;
     align-items: flex-start;
 }
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+}
+.card-dark {
+    background-color: white;
+    color: #1d1d1d;
+}
+.card-light {
+    background-color: #414141;
+    color: #1870c7;
+}
 @media (min-width: 770px) and (max-width: 1080px) {
     .sign__body-light, .sign__body-dark {
         width: 50%;

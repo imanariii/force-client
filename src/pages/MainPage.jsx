@@ -3,8 +3,24 @@ import { Api } from '../context/Api'
 import '../styles/main.css';
 import {Button} from "@mui/material";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function MainPage (props) {
+    const [categories, setCategories] = useState([])
+    useEffect(()=>{
+      const getAllBrands = () => {
+        axios.get('http://localhost:5000/api/category')
+          .then(function (res) {
+            setCategories(res.data)
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      }
+      getAllBrands()
+      // eslint-disable-next-line
+    }, [])
     return (
         <>
           <Header />
@@ -35,25 +51,18 @@ export default function MainPage (props) {
                   </div>
 
                   <div className={`wrapper__categories-${context.theme}`}>
-                    <div className={`body__categories-${context.theme} container`}>
+                    <div className={`body__categories-${context.theme}`}>
                       <span>#1 в Ростове-На-Дону и одни из лучших в России</span>
-                      <div className="categories-list">
-                        <CategoriasCard />
-                        <CategoriasCard />
-                        <CategoriasCard />
-                        <CategoriasCard />
-                        <CategoriasCard />
-                        <CategoriasCard />
-                        <CategoriasCard />
-                        <CategoriasCard />
-                        <CategoriasCard />
-                        <CategoriasCard />
+                      <div className="categories-list container">
+                        {categories && categories.map(category=>(
+                          <CategoriasCard key={category.id} name={category.name} />
+                        ))}
                       </div>
                     </div>
                   </div>
 
                   <div className={`wrapper__quest-prev-${context.theme}`}>
-                    <div className={`body__quest-prev container ${context.theme}`}>
+                    <div className={`body__quest-prev ${context.theme} container`}>
                       <span>У вас есть вопросы?</span>
                       <span>возможно мы ответили на ваш вопрос в блоке</span>
                       <span>ответов на вопросы</span>
