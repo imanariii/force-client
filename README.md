@@ -16,4 +16,4 @@
 ### Так как Back-End не разработан доконца, вы можете ознакомиться только с внешним видом сайта
 ### (Регистрация и Авторизация не будут работать)
 
-#[DEMO CLIENT-APP](https://force-imanari.netlify.app/)
+[DEMO CLIENT-APP](https://force-imanari.netlify.app/)
