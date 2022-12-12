@@ -17,4 +17,3 @@
 ### (Регистрация и Авторизация не будут работать)
 
 # <a href="https://force-imanari.netlify.app/" />DEMO
-[DEMO CLIENT-APP]()
