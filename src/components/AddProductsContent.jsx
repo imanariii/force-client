@@ -24,7 +24,6 @@ const AddProductsContent = () => {
     file: null,
     info: [{title:'The First',description: 'The Force'} ]
   });
-  console.log(values)
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   }

@@ -4,7 +4,6 @@ import { Image } from "react-bootstrap";
 
 const ContentProducts = () => {
   const state = useContext(Api)
-  console.log(state.brands)
   return (
     <>
       <h1>Все продукты:</h1>

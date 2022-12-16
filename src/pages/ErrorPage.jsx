@@ -14,7 +14,7 @@ export default function ErrorPage () {
             <main>
               <div className={`sign__wrapper-${context.theme}`}>
                 <div className={`error__body`}>
-                  <img src={catGif} alt="Loading..." />
+                  <img width="80%" src={catGif} alt="Loading..." />
                   <div>
                     <h1>Извините : (</h1>
                     <h3>произошла ошибка или страницы не существует.</h3>

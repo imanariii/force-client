@@ -6,24 +6,24 @@ import NoteAddTwoToneIcon from '@mui/icons-material/NoteAddTwoTone';
 
 const BottomNav = ({handleChange, value}) => {
   return (
-    <BottomNavigation sx={{ width: 500 }} value={value} onChange={handleChange} style={{background: 'transparent'}}>
+    <BottomNavigation value={value} onChange={handleChange} style={{background: 'transparent'}}>
       <BottomNavigationAction
-        label="Бренды"
+        label="Создание бренда"
         value="brands"
         icon={<AddBusinessTwoToneIcon />}
       />
       <BottomNavigationAction
-        label="Категории"
+        label="Создание категории"
         value="categories"
         icon={<SellTwoToneIcon />}
       />
       <BottomNavigationAction
-        label="Создать продукт"
+        label="Создание продукты"
         value="add-products"
         icon={<NoteAddTwoToneIcon />}
       />
       <BottomNavigationAction
-        label="Продукты"
+        label="Все продукты"
         value="products"
         icon={<ShoppingBagTwoToneIcon />}
       />

@@ -28,7 +28,7 @@ const QuestionsPage = () => {
         <div className={`sign__body-${state.theme}`}>
           <h1>Ответы на частые вопросы</h1>
           <div className="questions__list">
-            {questions.map(question=> <Question question={question} />) }
+            {questions.map((question, i)=> <Question key={i} question={question} />) }
           </div>
         </div>
       </div>
