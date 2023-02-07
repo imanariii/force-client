@@ -31,9 +31,9 @@ export default function SignInPage () {
           {context => (
             <>
                 <Header />
-                <main>
+                <main className={`sign__page-${context.theme}`}>
                     <div className={`sign__wrapper-${context.theme}`}>
-                        <div className={`sign__body-${context.theme}`}>
+                        <div className='sign__body'>
                             <h1>Авторизация</h1>
                             <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '70%'}}>
                             <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
@@ -74,6 +74,7 @@ export default function SignInPage () {
                             <FetchSignIn login={values.login} password={values.password} context={context} />
                         </div>
                     </div>
+                    <img src="https://sportsmarketinginfo.files.wordpress.com/2010/02/sports_by_saharay.jpg" alt="" />
                 </main>
                 <Header />
             </>

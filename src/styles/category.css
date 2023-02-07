@@ -1,0 +1,13 @@
+.category__wrapper {
+    color: white;
+}
+
+.card__wrapper {
+    padding: 4px;
+    width: 400px;
+    background: white;
+}
+
+.card__body img {
+    width: 100%;
+}

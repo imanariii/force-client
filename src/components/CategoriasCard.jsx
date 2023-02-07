@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import { Link } from 'react-router-dom'
-import { Api } from '../context/Api'
+import { Api } from '../context/Api';
+
 
 const CategoriasCard = ({id, name}) => {
   return (

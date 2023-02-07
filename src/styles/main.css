@@ -39,7 +39,7 @@ body {
     font-family: 'Roboto Mono', monospace;
 }
 .container {
-    padding: 0 10%;
+    padding: 0 4%;
 }
 header {
     padding: 1rem 2rem;
@@ -247,6 +247,9 @@ footer {
 .footer__body {
     display: flex;
     justify-content: space-between;
+}
+main {
+    background-color: #303030;
 }
 
 @media (min-width: 360px) and (max-width: 425px) {

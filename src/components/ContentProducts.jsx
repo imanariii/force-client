@@ -8,7 +8,7 @@ const ContentProducts = () => {
     <>
       <h1>Все продукты:</h1>
       { state.products && state.products.rows.map(item => (
-          <div className={`card card-${state.theme}`} style={{width: 150, cursor: 'pointer'}} border={state.theme}>
+          <div key={item.id} className={`card card-${state.theme}`} style={{width: 150, cursor: 'pointer'}} border={state.theme}>
             <Image width={150} height={150} src={'http://localhost:5000/' + item.img}/>
             <div className="card-info">
               <div className="card-brand">Brand: {state.brands.map(brand=>brand.id === item.brandId ? brand.name : '')}</div>

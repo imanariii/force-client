@@ -38,11 +38,10 @@ export default function SignUpPage () {
         {context => (
         <>
             <Header />
-            <main>
+            <main className={`sign__page-${context.theme}`}>
                 <div className={`sign__wrapper-${context.theme}`}>
-                    <div className={`sign__body-${context.theme}`}>
-
-                            <h1>Регистрация</h1>
+                    <div className='sign__body'>
+                        <h1>Регистрация</h1>
                         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '70%'}}>
                             <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
                                 <InputLabel htmlFor="outlined-adornment-password">Email</InputLabel>
@@ -82,6 +81,7 @@ export default function SignUpPage () {
                             <FetchSignUp login={values.login} password={values.password} context={context} />
                     </div>
                 </div>
+                <img src="https://sportsmarketinginfo.files.wordpress.com/2010/02/sports_by_saharay.jpg" alt="" />
             </main>
             <Header />
         </>

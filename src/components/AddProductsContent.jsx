@@ -79,7 +79,7 @@ const AddProductsContent = () => {
           name="brands"
         >
           {state.brands && state.brands.map(brand => (
-            <FormControlLabel value={brand.name} control={<Radio onClick={()=>setValues({...values, brand: brand.id})} />} label={brand.name} />
+            <FormControlLabel key={brand.id} value={brand.name} control={<Radio onClick={()=>setValues({...values, brand: brand.id})} />} label={brand.name} />
           ))}
         </RadioGroup>
         <FormLabel id="category">Выберите категорию</FormLabel>
@@ -89,7 +89,7 @@ const AddProductsContent = () => {
           name="category"
         >
           {state.categories && state.categories.map(category => (
-            <FormControlLabel value={category.name} control={<Radio onClick={()=>setValues({...values, category: category.id})} />} label={category.name} />
+            <FormControlLabel key={category.id} value={category.name} control={<Radio onClick={()=>setValues({...values, category: category.id})} />} label={category.name} />
           ))}
         </RadioGroup>
         <Button sx={{width: 300}} component="label" variant="outlined" startIcon={<AddPhotoAlternateTwoToneIcon />}>
@@ -102,25 +102,27 @@ const AddProductsContent = () => {
         >
           Добавить новое свойство
         </Button>
-        {values.info.map(i =>
-          <Row className="mt-4" key={i.number}>
+        {values.info.map((item, i) =>
+          <Row className="mt-4">
             <Col md={4}>
               <Form.Control
-                value={i.title}
-                onChange={(e) => changeInfo('title', e.target.value, i.number)}
+                key={i}
+                value={item.title}
+                onChange={(e) => changeInfo('title', e.target.value, item.number)}
                 placeholder="Введите название свойства"
               />
             </Col>
             <Col md={4}>
               <Form.Control
-                value={i.description}
-                onChange={(e) => changeInfo('description', e.target.value, i.number)}
+                key={i}
+                value={item.description}
+                onChange={(e) => changeInfo('description', e.target.value, item.number)}
                 placeholder="Введите описание свойства"
               />
             </Col>
             <Col md={4}>
               <Button
-                onClick={() => removeInfo(i.number)}
+                onClick={() => removeInfo(item.number)}
                 variant='danger'
               >
                 Удалить

@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from "react";
-import { ErrorPage, MainPage, ProfilePage, QuestionsPage, SignInPage, SignUpPage, AdminPanelPage } from "./pages";
+import { ErrorPage, MainPage, ProfilePage, QuestionsPage, SignInPage, SignUpPage, AdminPanelPage, CategoryPage } from "./pages";
 
 import {
     createBrowserRouter,
@@ -111,6 +111,18 @@ export function App() {
                         <ToastContainer />
                     </>
                   )
+              },
+              {
+                path: 'category',
+                errorElement: <ErrorPage />,
+                element: (state.isAuth) ? (
+                  <CategoryPage />
+                ) : (
+                  <>
+                    <SignUpPage />
+                    <ToastContainer />
+                  </>
+                )
               },
               {
                   path: 'profile',
