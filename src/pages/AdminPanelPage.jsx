@@ -1,5 +1,6 @@
 import { Header, BottomNav, ContentNav } from "../components";
 import { Api } from "../context/Api";
+import '../styles/adminpanel.css';
 import React, { useState } from 'react';
 
 const AdminPanelPage = () => {
@@ -12,12 +13,12 @@ const AdminPanelPage = () => {
         <>
           <Header />
           <main>
-            <div className={`sign__wrapper-${context.theme}`}>
+            <div className={`admin-panel__wrapper admin-panel__wrapper-${context.theme}`}>
                 <h1>Админ панель</h1>
                 <div className={`sign__body-${context.theme}`}>
                   <BottomNav handleChange={handleChange} value={value} />
                 </div>
-                <div className={`sign__body-${context.theme}`}>
+                <div className={`admin-panel__content`}>
                   <ContentNav value={value} />
                 </div>
             </div>
