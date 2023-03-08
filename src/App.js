@@ -1,17 +1,12 @@
 import React from 'react';
 import {useState, useEffect} from "react";
-import { ErrorPage, MainPage, ProfilePage, QuestionsPage, SignInPage, SignUpPage, AdminPanelPage, CategoryPage } from "./pages";
-
-import {
-    createBrowserRouter,
-    RouterProvider,
-} from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import { Api } from './context/Api';
 import Cookies from 'js-cookie'
 import jwt_decode from "jwt-decode";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from "axios";
+import Router from "./components/Router";
 
 export function App() {
   const token = Cookies.get('token');
@@ -26,9 +21,6 @@ export function App() {
     setUser: props => setState(state => ({ ...state, user: props })),
     resetUser:  () => setState( state => ({ ...state, user: {} })),
     isAuth: false,
-    brands: [],
-    categories: [],
-    products: [],
     toggleIsAuth: props => setState( state => ({...state, isAuth: props })),
     notifyErr: props => toast.error(props, {
       position: "top-right",
@@ -37,7 +29,7 @@ export function App() {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "dark",
+      theme: state.theme,
     }),
     notifySuc: props => toast.success(props, {
       position: "top-right",
@@ -47,118 +39,17 @@ export function App() {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "dark",
+      theme: state.theme,
       }),
-    getAllBrands: props => {
-      axios.get('http://localhost:5000/api/brand')
-        .then(function (res) {
-          setState(state => ({...state, brands: res.data}))
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    },
-    getAllCategories: props => {
-      axios.get('http://localhost:5000/api/category')
-        .then(function (res) {
-          setState(state => ({...state, categories: res.data}))
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    },
-    getAllProducts: props => {
-      axios.get('http://localhost:5000/api/products')
-        .then(function (res) {
-          setState(state => ({...state, products: res.data}))
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    },
+    cards: [],
+    setCards: props => setState(state => ({...state, cards: [...state.cards, props]}))
   });
 
-  const router = createBrowserRouter([
-      {
-          path: '/',
-          errorElement: <ErrorPage />,
-          children: [
-              {
-                  path: '',
-                  errorElement: <ErrorPage />,
-                  element: <MainPage />
-              },
-              {
-                  path: 'signin',
-                  errorElement: <ErrorPage />,
-                  element: (state.isAuth) ? (
-                    <ProfilePage />
-                  ) : (
-                    <>
-                        <SignInPage />
-                        <ToastContainer />
-                    </>
-                  )
-              },
-              {
-                  path: 'signup',
-                  errorElement: <ErrorPage />,
-                  element: (state.isAuth) ? (
-                        <ProfilePage />
-                  ) : (
-                    <>
-                        <SignUpPage />
-                        <ToastContainer />
-                    </>
-                  )
-              },
-              {
-                path: 'category',
-                errorElement: <ErrorPage />,
-                element: (state.isAuth) ? (
-                  <CategoryPage />
-                ) : (
-                  <>
-                    <SignUpPage />
-                    <ToastContainer />
-                  </>
-                )
-              },
-              {
-                  path: 'profile',
-                  errorElement: <ErrorPage />,
-                  element: (state.isAuth) ? (
-                    <ProfilePage />
-                  ) : (
-                    <MainPage />
-                  )
-              },
-              {
-                  path: 'questions',
-                  errorElement: <ErrorPage />,
-                  element: <QuestionsPage />
-              },
-              {
-                  path: 'admin-panel',
-                  errorElement: <ErrorPage />,
-                  element: (state.user.role === 'ADMIN') ? (
-                      <AdminPanelPage />
-                  ) : (
-                      <MainPage />
-                  )
-              }
-          ]
-      }
-  ])
+  Router(state)
 
   useEffect(()=>{
     if(typeof token === 'string') {
       const user = jwt_decode(token);
-      if (state.brands.length <= 0) {
-        state.getAllBrands()
-        state.getAllCategories()
-        state.getAllProducts()
-      }
       if(JSON.stringify(state.user) === JSON.stringify({})) {
         state.toggleIsAuth(true);
         state.setToken(token);
@@ -169,7 +60,7 @@ export function App() {
 
   return (
       <Api.Provider value={state}>
-          <RouterProvider router = {router} />
+          <RouterProvider router = {Router(state)} />
       </Api.Provider>
     )
 }

@@ -15,5 +15,7 @@ export const Api = createContext({
   isAuth: false,
   toggleIsAuth: () => {},
   isAdmin: false,
-  toggleIsAdmin: () => {}
+  toggleIsAdmin: () => {},
+  cards: [],
+  setCards: () => {},
 });

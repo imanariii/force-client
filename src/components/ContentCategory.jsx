@@ -1,29 +1,28 @@
 import { Button, Input, TextField } from "@mui/material";
-import React, { useState, useContext } from "react";
-import axios from "axios";
-import { Api } from "../context/Api";
+import React, { useState, useEffect } from "react";
+import FetchCreateCategory from "../utils/FetchCreateCategory";
+import FetchGetAllCategorias from "../utils/FetchGetAllCategorias";
 
 const ContentCategory = () => {
-  const state = useContext(Api)
-  const [values, setValues] = useState({
-    name: ''
-  });
+  const [categories, setCategories] = useState([])
+  const [newCategoryName, setNewCategoryName] = useState('');
 
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  const handleChange = (event) => {
+    setNewCategoryName(event.target.value);
   }
-  const createCategory = async () => {
-    await axios.post('http://localhost:5000/api/category', {name: values.name})
-  }
+
+  useEffect(()=>{
+    FetchGetAllCategorias(setCategories)
+  }, [categories, newCategoryName])
   return (
     <>
       <h1>Внесение категории</h1>
       <div style={{display: "flex", gap: "1rem"}}>
-        <Input placeholder="Название категории" onChange={handleChange('name')}></Input>
-        <Button id="btn" onClick={createCategory}>Добавить</Button>
+        <Input placeholder="Название категории" onChange={(e)=>handleChange(e)}></Input>
+        <Button id="btn" onClick={()=>FetchCreateCategory(newCategoryName)}>Добавить</Button>
       </div>
       <h1>Все категории:</h1>
-      { state.categories && state.categories.map(category => (
+      { categories && categories.map(category => (
         <TextField
           key={category.id}
           label={`Название бренда №${category.id}`}

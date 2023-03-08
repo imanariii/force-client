@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Button,
   FormControlLabel,
@@ -8,14 +8,13 @@ import {
   RadioGroup,
   Stack
 } from "@mui/material";
+import { FetchCreateProduct } from "../utils/FetchCreateProduct";
 import {Form, Row, Col} from "react-bootstrap";
-import AddCircleTwoToneIcon from '@mui/icons-material/AddCircleTwoTone';
 import AddPhotoAlternateTwoToneIcon from '@mui/icons-material/AddPhotoAlternateTwoTone';
-import { Api } from "../context/Api";
-import axios from "axios";
+import FetchGetAllCategorias from "../utils/FetchGetAllCategorias";
+import FetchGetAllBrands from "../utils/FetchGetAllBrands";
 
 const AddProductsContent = () => {
-  const state = useContext(Api)
   const [values, setValues] = useState({
     name: '',
     price: 0,
@@ -24,6 +23,9 @@ const AddProductsContent = () => {
     file: null,
     info: [{title:'The First',description: 'The Force'} ]
   });
+  const [brands, setBrands] = useState([])
+  const [categories, setCategories] = useState([])
+
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   }
@@ -39,33 +41,11 @@ const AddProductsContent = () => {
   const changeInfo = (key, value, number) => {
     setValues({...values, info: values.info.map(i => i.number === number ? {...i, [key]: value} : i)})
   }
-  const createProduct = async () => {
-    const data = new FormData()
-    data.append('name', values.name)
-    data.append('price',  `${values.price}`)
-    data.append('img', values.file)
-    data.append('brandId', values.brand)
-    data.append('categoryId', values.category)
-    data.append('info', JSON.stringify(values.info))
-    try {
-      await axios.post('http://localhost:5000/api/products', data, {
-        headers: {
-          Authorization: 'Bearer ' + state.token
-        }
-      })
-      setValues({
-        name: '',
-        price: 0,
-        brand: null,
-        category: null,
-        file: null,
-        info: [{title:'The First',description: 'The Force'} ]
-      })
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
+  useEffect(() => {
+    FetchGetAllBrands(setBrands)
+    FetchGetAllCategorias(setCategories)
+  }, [values])
   return (
     <>
       <h1>Добавить продукты</h1>
@@ -78,7 +58,7 @@ const AddProductsContent = () => {
           aria-labelledby="brands"
           name="brands"
         >
-          {state.brands && state.brands.map(brand => (
+          {brands && brands.map(brand => (
             <FormControlLabel key={brand.id} value={brand.name} control={<Radio onClick={()=>setValues({...values, brand: brand.id})} />} label={brand.name} />
           ))}
         </RadioGroup>
@@ -88,7 +68,7 @@ const AddProductsContent = () => {
           aria-labelledby="category"
           name="category"
         >
-          {state.categories && state.categories.map(category => (
+          {categories && categories.map(category => (
             <FormControlLabel key={category.id} value={category.name} control={<Radio onClick={()=>setValues({...values, category: category.id})} />} label={category.name} />
           ))}
         </RadioGroup>
@@ -103,7 +83,7 @@ const AddProductsContent = () => {
           Добавить новое свойство
         </Button>
         {values.info.map((item, i) =>
-          <Row className="mt-4">
+          <Row className="mt-4" key={i}>
             <Col md={4}>
               <Form.Control
                 key={i}
@@ -130,10 +110,7 @@ const AddProductsContent = () => {
             </Col>
           </Row>
         )}
-        <Button sx={{width: 300}} component="label" variant="contained" startIcon={<AddCircleTwoToneIcon />}>
-          Добавить продукт
-          <input hidden accept="image/*" type="submit" onClick={createProduct} />
-        </Button>
+        <FetchCreateProduct values={values} setValues={setValues} />
       </Stack>
   </>
   )

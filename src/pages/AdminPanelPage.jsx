@@ -1,15 +1,13 @@
 import { Header, BottomNav, ContentNav } from "../components";
 import { Api } from "../context/Api";
 import '../styles/adminpanel.css';
-import React, { useState } from 'react';
+import React, { useContext, useState } from "react";
 
 const AdminPanelPage = () => {
+  const context = useContext(Api)
   const [value, setValue] = useState('recents');
   const handleChange = (event, newValue) => setValue(newValue);
   return (
-    <Api.Consumer>
-      {context => (
-        context.user &&
         <>
           <Header />
           <main>
@@ -25,10 +23,7 @@ const AdminPanelPage = () => {
           </main>
           <Header />
         </>
-      )}
-    </Api.Consumer>
-
-  )
+      )
 }
 
 export default AdminPanelPage;

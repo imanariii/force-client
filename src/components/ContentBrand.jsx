@@ -1,29 +1,29 @@
 import { Button, Input, TextField } from "@mui/material";
-import React, { useState, useContext } from "react";
-import axios from "axios";
-import { Api } from "../context/Api";
+import React, { useState, useEffect } from "react";
+import FetchCreateBrand from "../utils/FetchCreateBrand";
+import FetchGetAllBrands from "../utils/FetchGetAllBrands";
 
 const ContentBrand = () => {
-  const state = useContext(Api)
-  const [values, setValues] = useState({
-    name: '',
-  });
+  const [brands, setBrands] = useState([])
+  const [newBrandName, setNewBrandName] = useState('');
 
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  const handleChange = (event) => {
+    setNewBrandName(event.target.value);
   }
-  const createBrand = async () => {
-    await axios.post('http://localhost:5000/api/brand', {name: values.name})
-  }
+
+  useEffect(() => {
+    FetchGetAllBrands(setBrands)
+  }, [brands, newBrandName])
+
   return (
     <>
       <h1>Внесение бренда</h1>
       <div style={{display: "flex", gap: "1rem"}}>
-        <Input placeholder="Название бренда" onChange={handleChange('name')}></Input>
-        <Button id="btn" onClick={createBrand}>Добавить</Button>
+        <Input placeholder="Название бренда" onChange={(e)=>handleChange(e)}></Input>
+        <Button id="btn" onClick={()=>FetchCreateBrand(newBrandName)}>Добавить</Button>
       </div>
       <h1>Все бренды:</h1>
-      { state.brands && state.brands.map(brand => (
+      { brands && brands.map(brand => (
         <TextField
           key={brand.id}
           label={`Название бренда №${brand.id}`}

@@ -1,44 +1,47 @@
-import { Header } from "../components";
-import React, { useContext } from "react";
-import { Api } from "../context/Api";
-import Typography from '@mui/material/Typography';
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
+import { Header, CardProduct } from "../components";
+import React, { useEffect, useState } from "react";
 import '../styles/category.css';
+import axios from "axios";
 
 const CategoryPage = () => {
-  const state = useContext(Api)
-  console.log(state)
-  const [page, setPage] = React.useState(1);
-  const handleChange = (event, value) => {
-    setPage(value);
-  };
+  const [products, setProducts] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [fetching, setFetching] = useState(true)
+  const [totalCount, setTotalCount] = useState(0)
+  useEffect(()=>{
+    if (fetching) {
+      axios.get(`http://localhost:5000/api/products?page=${currentPage}`)
+        .then(function (res) {
+          setProducts([...products, ...res.data.rows])
+          setCurrentPage(prevState => prevState + 1)
+          setTotalCount(res.data.count)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+        .finally(()=>setFetching(false))
+    }
+  }, [fetching])
+  useEffect(() => {
+    document.addEventListener('scroll', scrollHandler)
+
+    return function () {
+      document.removeEventListener('scroll', scrollHandler)
+    };
+  }, [fetching])
+  const scrollHandler = (e) => {
+    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight)<100 && products.length < totalCount) {
+      setFetching(true)
+    }
+  }
   return (
     <>
       <Header />
       <main className="category__wrapper">
-        <h3>Добро пожаловать {state.user.email}</h3>
         <div className="category__body">
-          <Stack spacing={2}>
-            <Typography>Page: {page}</Typography>
-            <Pagination count={10} page={page} color="primary" onChange={handleChange} />
-          </Stack>
-          <Stack
-            direction="column"
-            justifyContent="flex-start"
-            alignItems="center"
-            spacing={0.5}
-          >
-            {state.products.rows && state.products.rows.map(item=>(
-              <div className="card__wrapper">
-                <div className="card__body">
-                  <img src={'http://localhost:5000/' + item.img} alt="" />
-                  <h3>{item.name}</h3>
-                </div>
-              </div>
+            {products && products.map((item, i)=>(
+              <CardProduct item={item} i={i} />
             ))}
-          </Stack>
-
         </div>
       </main>
       <Header />
