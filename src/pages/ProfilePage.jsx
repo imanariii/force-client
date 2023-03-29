@@ -1,6 +1,6 @@
 import { Header} from "../components";
 import React, { useContext } from "react";
-import '../styles/sign.css';
+import '../styles/profile.css';
 import { Button } from "@mui/material";
 import Cookies from 'js-cookie';
 import { Api } from '../context/Api'
@@ -10,22 +10,23 @@ import { FetchRemove } from "../utils/FetchRemove";
 
 const ProfilePage = () => {
     const state = useContext(Api)
+    console.log(state.user)
     return (
           <>
             <Header />
-            <main>
-              <div className={`sign__wrapper-${state.theme}`}>
-                <div className={`sign__body-${state.theme}`}>
+            <main className={`${state.theme} profile`}>
+              <div className='profile__wrapper'>
+                <div className='profile__body'>
                   <h1>Profile</h1>
                   <div className="profile-content">
                     <div>
                       <p className="content-title">Ваш E-mail : {state.user.email}</p>
                       <p className="content-role">Ваша роли : { state.user.role }</p>
-                      <p className="content-address">Ваш адрес : </p>
+                      <p className="content-address">Ваш адрес : {state.user.address}</p>
                     </div>
                     <div>
                       { state.user.role === 'ADMIN' &&
-                        <Link to="../admin-panel">
+                        <Link to="../admin-panel/products">
                           <Button id="btn" variant="contained">
                             Войти в Админ-панель
                           </Button>
@@ -60,7 +61,7 @@ const ProfilePage = () => {
                     </tr>
                     { state.cards.length > 0 && state.cards.map(item => (
                       <tr key={item.id}>
-                        <td><Image height='50px' width='50px' src={'http://localhost:5000/' + item.img}/></td>
+                        <td className="img"><Image height='50px' width='50px' src={'http://localhost:5000/' + item.img}/></td>
                         <td>{item.name}</td>
                         <td>{item.price}</td>
                         <td><FetchRemove id={item.id} /> </td>

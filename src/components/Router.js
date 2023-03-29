@@ -1,7 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import {
-  AdminPanelPage,
-  CategoryPage,
   ErrorPage,
   MainPage,
   ProfilePage,
@@ -11,6 +9,8 @@ import {
 } from "../pages";
 import { ToastContainer } from "react-toastify";
 import React from "react";
+import { Brands, Category, Products, AddProducts } from "../pages/AdminPanelPage";
+import { Hoodie, Sneaks, Trousers } from "../pages/CategoryPage";
 
 const Router = (state)=>{
   return (
@@ -49,21 +49,6 @@ const Router = (state)=>{
           )
         },
         {
-          path: 'category',
-          errorElement: <ErrorPage />,
-          element: (state.isAuth) ? (
-            <>
-              <CategoryPage />
-              <ToastContainer />
-            </>
-          ) : (
-            <>
-              <SignUpPage />
-              <ToastContainer />
-            </>
-          )
-        },
-        {
           path: 'profile',
           errorElement: <ErrorPage />,
           element: (state.isAuth) ? (
@@ -80,14 +65,89 @@ const Router = (state)=>{
         {
           path: 'admin-panel',
           errorElement: <ErrorPage />,
-          element: (state.user.role === 'ADMIN') ? (
-            <>
-              <AdminPanelPage />
-              <ToastContainer />
-            </>
-          ) : (
-            <MainPage />
-          )
+          children: [{
+              path: 'products',
+              errorElement: <ErrorPage />,
+              element: (state.user.role === 'ADMIN') ? (
+                <>
+                  <Products />
+                  <ToastContainer />
+                </>
+              ) : (
+                <MainPage />
+              )
+            }, {
+              path: 'add-product',
+              errorElement: <ErrorPage />,
+              element: (state.user.role === 'ADMIN') ? (
+                <>
+                  <AddProducts />
+                  <ToastContainer />
+                </>
+              ) : (
+                <MainPage />
+              )
+            }, {
+              path: 'brands',
+              errorElement: <ErrorPage />,
+              element: (state.user.role === 'ADMIN') ? (
+                <>
+                  <Brands />
+                  <ToastContainer />
+                </>
+              ) : (
+                <MainPage />
+              )
+            }, {
+              path: 'category',
+              errorElement: <ErrorPage />,
+              element: (state.user.role === 'ADMIN') ? (
+                <>
+                  <Category />
+                  <ToastContainer />
+                </>
+
+              ) : (
+                <MainPage />
+              ),
+            }
+          ]
+        },
+        {
+          path: 'category',
+          errorElement: <ErrorPage />,
+          children: [
+            {
+              path: 'sneaks',
+              errorElement: <ErrorPage />,
+              element: (
+                <>
+                  <Sneaks />
+                  <ToastContainer />
+                </>
+              )
+            },
+            {
+              path: 'trousers',
+              errorElement: <ErrorPage />,
+              element: (
+                <>
+                  <Trousers />
+                  <ToastContainer />
+                </>
+              )
+            },
+            {
+              path: 'hoodie',
+              errorElement: <ErrorPage />,
+              element: (
+                <>
+                  <Hoodie />
+                  <ToastContainer />
+                </>
+              )
+            }
+          ]
         }
       ]
     }

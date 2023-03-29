@@ -3,10 +3,15 @@ import { Api } from '../context/Api'
 import '../styles/main.css';
 import {Button} from "@mui/material";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import FetchGetAllCategorias from "../utils/FetchGetAllCategorias";
 
 export default function MainPage (props) {
     const state = useContext(Api)
+    const [categorias, setCategorias] = useState([])
+    useEffect(()=>{
+      FetchGetAllCategorias(setCategorias)
+    }, [])
     return (
         <>
           <Header />
@@ -17,7 +22,7 @@ export default function MainPage (props) {
                 <h1 className="title">be strong</h1>
               }
               <div className="btns">
-                <Link to="../category"><Button variant="contained" id="btn">Перейти к каталогу</Button></Link>
+                <Link to="../category/sneaks"><Button variant="contained" id="btn">Перейти к каталогу</Button></Link>
                 { state.isAuth
                   ? <Link to="../profile"><Button variant="outlined" id="outlined">Войти в профиль</Button></Link>
                   : <Link to="../signup"><Button variant="outlined" id="outlined">Зарегистрироваться</Button></Link>
@@ -36,9 +41,9 @@ export default function MainPage (props) {
             <div className={`body__categories-${state.theme}`}>
               <span>#1 в Ростове-На-Дону и одни из лучших в России</span>
               <div className="categories-list container">
-                {/*{categories && categories.map(category=>(*/}
-                {/*  <CategoriasCard key={category.id} name={category.name} />*/}
-                {/*))}*/}
+                {categorias && categorias.map(category=>(
+                  <CategoriasCard key={category.id} name={category.name} />
+                ))}
               </div>
             </div>
           </div>

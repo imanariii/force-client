@@ -1,7 +1,5 @@
 import axios from "axios";
 import React from "react";
-import { Button } from "@mui/material";
-import AddCircleTwoToneIcon from "@mui/icons-material/AddCircleTwoTone";
 import { useContext } from "react";
 import { Api } from "../context/Api";
 
@@ -14,7 +12,7 @@ export function FetchCreateProduct({values, setValues}) {
     data.append('img', values.file)
     data.append('brandId', values.brand)
     data.append('categoryId', values.category)
-    data.append('info', JSON.stringify(values.info))
+    // data.append('info', JSON.stringify(values.info))
     try {
       await axios.post('http://localhost:5000/api/products', data, {
         headers: {
@@ -27,7 +25,7 @@ export function FetchCreateProduct({values, setValues}) {
         brand: null,
         category: null,
         file: null,
-        info: [{title:'The First',description: 'The Force'} ]
+        // info: [{title:'The First',description: 'The Force'} ]
       })
       state.notifySuc('Успешно')
     } catch (error) {
@@ -40,9 +38,8 @@ export function FetchCreateProduct({values, setValues}) {
     }
   }
   return (
-    <Button sx={{width: 300}} component="label" variant="contained" startIcon={<AddCircleTwoToneIcon />}>
+    <button onClick={()=>axiosCreateProduct()}>
       Добавить продукт
-      <input hidden accept="image/*" type="submit" onClick={()=>axiosCreateProduct()} />
-    </Button>
+    </button>
   )
 }

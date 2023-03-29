@@ -2,13 +2,13 @@ import axios from "axios";
 import React from "react";
 import { useContext } from "react";
 import { Api } from "../context/Api";
-import { useNavigate } from "react-router-dom";
 
-export function FetchRemove({id}) {
+export function FetchRemove({id, setFetching}) {
   const context = useContext(Api)
   const axiosRemove = async () => {
     try {
       await axios.delete(`http://localhost:5000/api/products/${id}`)
+      setFetching(true)
       context.notifySuc('Успешно')
     } catch (error) {
       console.log(error)
@@ -20,6 +20,6 @@ export function FetchRemove({id}) {
     }
   }
   return (
-    <button className="product-remove" onClick={()=>axiosRemove()}>Remove</button>
+    <button className="remove-btn" onClick={()=>axiosRemove()}><span>Remove</span></button>
   )
 }

@@ -11,7 +11,7 @@ export default function Header (props) {
       <>
         <header className={`${state.theme}`}>
           <div className='header__body container'>
-            <Link className="logo" to="../">force</Link>
+            <Link className="logo" to="../../">force</Link>
             <IconButton color={state.theme === 'light' ? 'secondary' : 'success'} onClick={state.toggleTheme}>
               {state.theme === 'light' ?
                 <DarkModeTwoToneIcon /> :

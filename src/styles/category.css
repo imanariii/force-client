@@ -1,10 +1,19 @@
+.dark .category__body {
+    background-color: #343434;
+    min-height: 80vh;
+}
 .category__wrapper {
-    color: white;
     transition: 0.5s;
-    min-height: 90vh;
+    padding: 12px 0 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.category__wrapper nav{
+    padding: 12px 0;
 }
 .category__body {
-    padding: 12px;
+    padding: 12px 12px 30px 12px;
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
