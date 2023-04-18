@@ -22,6 +22,7 @@ const NavigationButtonsAdmin = ({value}) => {
 //     navigate(`../${navValue}`)
 //   }, [navValue])
   return (
+    <>
 //     <BottomNavigation value={navValue} onChange={navHandleChange} style={{background: state.theme === 'dark' ? '#343434' : 'white'}}>
       <BottomNavigationAction
         label="Создание бренда"
@@ -43,6 +44,7 @@ const NavigationButtonsAdmin = ({value}) => {
         value="products"
         icon={<ShoppingBagTwoToneIcon />}
       />
+          </>
 //     </BottomNavigation>
   )
 }
