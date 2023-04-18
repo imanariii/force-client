@@ -1,5 +1,5 @@
 import '../styles/adminpanel.css';
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { BottomNavigation, BottomNavigationAction } from "@mui/material";
 import AddBusinessTwoToneIcon from "@mui/icons-material/AddBusinessTwoTone";
 import SellTwoToneIcon from "@mui/icons-material/SellTwoTone";
@@ -18,9 +18,9 @@ const NavigationButtonsAdmin = ({value}) => {
   const navHandleChange = (event, newValue) => {
     setNavValue(newValue);
   };
-  useEffect(()=>{
-    navigate(`../${navValue}`)
-  }, [navValue])
+//   useEffect(()=>{
+//     navigate(`../${navValue}`)
+//   }, [navValue])
   return (
     <BottomNavigation value={navValue} onChange={navHandleChange} style={{background: state.theme === 'dark' ? '#343434' : 'white'}}>
       <BottomNavigationAction
