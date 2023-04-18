@@ -20,7 +20,7 @@ const NavigationButtonsAdmin = ({value}) => {
   };
   useEffect(()=>{
     navigate(`../${navValue}`)
-  }, [navValue])
+  }, [])
   return (
     <BottomNavigation value={navValue} onChange={navHandleChange} style={{background: state.theme === 'dark' ? '#343434' : 'white'}}>
       <BottomNavigationAction
