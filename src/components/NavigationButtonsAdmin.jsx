@@ -13,17 +13,8 @@ const NavigationButtonsAdmin = ({value}) => {
   const state = useContext(Api)
   const [navValue, setNavValue] = useState(value);
 
-//   const navigate = useNavigate();
-
-//   const navHandleChange = (event, newValue) => {
-//     setNavValue(newValue);
-//   };
-//   useEffect(()=>{
-//     navigate(`../${navValue}`)
-//   }, [navValue])
   return (
-    <>
-//     <BottomNavigation value={navValue} onChange={navHandleChange} style={{background: state.theme === 'dark' ? '#343434' : 'white'}}>
+    <BottomNavigation style={{background: state.theme === 'dark' ? '#343434' : 'white'}}>
       <BottomNavigationAction
         label="Создание бренда"
         value="brands"
@@ -44,8 +35,7 @@ const NavigationButtonsAdmin = ({value}) => {
         value="products"
         icon={<ShoppingBagTwoToneIcon />}
       />
-          </>
-//     </BottomNavigation>
+    </BottomNavigation>
   )
 }
 
