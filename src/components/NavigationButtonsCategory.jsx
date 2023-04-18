@@ -18,7 +18,7 @@ const NavigationButtonsCategory = ({value}) => {
   };
   useEffect(()=>{
     navigate(`../${navValue}`)
-  }, [])
+  }, [navigate, navValue])
   return (
     <BottomNavigation value={navValue} onChange={navHandleChange} style={{background: state.theme === 'dark' ? '#343434' : 'white'}}>
       <BottomNavigationAction
