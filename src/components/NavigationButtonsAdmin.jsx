@@ -14,7 +14,7 @@ const NavigationButtonsAdmin = () => {
 //   const [navValue, setNavValue] = useState(value);
 
   return (
-    <BottomNavigation style={{background: state.theme === 'dark' ? '#343434' : 'white'}}>
+    <BottomNavigation>
       <BottomNavigationAction
         label="Создание бренда"
         value="brands"
