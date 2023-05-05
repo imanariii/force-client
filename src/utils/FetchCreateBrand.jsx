@@ -10,8 +10,10 @@ const FetchCreateBrand = ({name, setFetching}) => {
       Authorization: 'Bearer ' + state.token
     }
   }).then((res) => {
-    res.data.message ? state.notifyErr(res.data.message) :
     state.notifySuc('Успешно!')
+  }).catch((res)=>{
+    console.log(res)
+    state.notifyErr(res.response.data.message)
   })
   setFetching(true)
   }

@@ -5,6 +5,7 @@ import {Button} from "@mui/material";
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import FetchGetAllCategorias from "../utils/FetchGetAllCategorias";
+import { Background, Parallax } from "react-parallax";
 
 export default function MainPage (props) {
     const state = useContext(Api)
@@ -30,19 +31,30 @@ export default function MainPage (props) {
               </div>
             </div>
           </div>
-
-          <div className={`wrapper__free-delivery-${state.theme}`}>
-            <div className={`body__free-delivery`}>
-              <span>Доставка по России и странам СНГ!</span>
+          <Parallax strength={500}>
+            <Background className="custom-bg">
+              <div
+                style={{
+                  height: 800,
+                  width: 2000,
+                  backgroundImage: "url('https://sun9-5.userapi.com/impg/kyfkrVVSG_ZHLq7t8H_nvRCx9Rpwb6f4kkDeyQ/gewWKJp4gfM.jpg?size=316x106&quality=96&sign=82b88ec29eedbe442b766f0d9097eb75&type=album')"
+                }}
+              />
+            </Background>
+            <div className={`wrapper__free-delivery-${state.theme}`}>
+              <div className={`body__free-delivery`}>
+                <span>Доставка по России и странам СНГ!</span>
+              </div>
             </div>
-          </div>
+          </Parallax>
+
 
           <div className={`wrapper__categories-${state.theme}`}>
             <div className={`body__categories-${state.theme}`}>
               <span>#1 в Ростове-На-Дону и одни из лучших в России</span>
               <div className="categories-list container">
                 {categorias && categorias.map(category=>(
-                  <CategoriasCard key={category.id} name={category.name} />
+                    <CategoriasCard key={category.id} name={category.name} description={category.description} />
                 ))}
               </div>
             </div>

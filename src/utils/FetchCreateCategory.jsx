@@ -2,17 +2,21 @@ import axios from "axios";
 import { useContext } from "react";
 import { Api } from "../context/Api";
 
-const FetchCreateCategory = ({name, setFetching}) => {
+const FetchCreateCategory = ({name, setFetching, description}) => {
   const state = useContext(Api)
+  console.log(name, description)
   const axiosCreate = async () => {
-    await axios.post('http://localhost:5000/api/category', { name: name }, {
+    await axios.post('http://localhost:5000/api/category', {
+      name: name,
+      description: description
+    }, {
       headers: {
         Authorization: 'Bearer ' + state.token
       }
-      }).then((res) => {
+    }).then((res) => {
         res.data.message ? state.notifyErr(res.data.message) :
-          state.notifySuc('Успешно!')
-      })
+        state.notifySuc('Успешно!')
+    })
 
     setFetching(true)
     }
