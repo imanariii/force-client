@@ -42,8 +42,8 @@ const AddProducts = () => {
   // }
 
   useEffect(() => {
-    FetchGetAllBrands(setBrands)
-    FetchGetAllCategorias(setCategories)
+    FetchGetAllBrands(setBrands, state)
+    FetchGetAllCategorias(setCategories, state)
   }, [])
   return (
     <>

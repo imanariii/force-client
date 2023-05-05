@@ -1,8 +1,10 @@
 import axios from "axios";
+import { useContext } from "@types/react";
+import { Api } from "../context/Api";
 
-const FetchGetAllProducts = (setProducts, page) => {
+const FetchGetAllProducts = (setProducts, page, state) => {
   page = page || 1
-  axios.get(`http://localhost:5000/api/products?page=${page}`)
+  axios.get(`${state.address}/products?page=${page}`)
     .then(function (res) {
       setProducts(res.data.rows)
     })

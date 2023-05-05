@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const FetchGetAllCategorias = (setCategorias) => {
-  axios.get('http://localhost:5000/api/category')
+const FetchGetAllCategorias = (setCategorias, state) => {
+  console.log(state, setCategorias)
+  axios.get(`${state.address}/category`)
     .then(function (res) {
       setCategorias(res.data)
     })

@@ -10,7 +10,7 @@ export function FetchUpdateProduct({values, setProducts}) {
       data.append('price',  values.price)
       data.append('count', values.count)
       try {
-        await axios.patch(`http://localhost:5000/api/products/${values.id}`, data)
+        await axios.patch(`${state.address}/products/${values.id}`, data)
         state.notifySuc('Успешно')
       } catch (error) {
         console.log(error)
@@ -20,9 +20,9 @@ export function FetchUpdateProduct({values, setProducts}) {
           error.response.data.map(message=>state.notifyErr(message))
         }
       }
-      axios.get(`http://localhost:5000/api/products`)
+      axios.get(`${state.address}/products`)
         .then(function(res) {
-          axios.get(`http://localhost:5000/api/products?limit=${res.data.count}`)
+          axios.get(`${state.address}/products?limit=${res.data.count}`)
             .then(function (res) {
               setProducts(res.data.rows)
             })

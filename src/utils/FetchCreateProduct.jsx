@@ -14,7 +14,7 @@ export function FetchCreateProduct({values, setValues}) {
     data.append('categoryId', values.category)
     // data.append('info', JSON.stringify(values.info))
     try {
-      await axios.post('http://localhost:5000/api/products', data, {
+      await axios.post(`${state.address}/products`, data, {
         headers: {
           Authorization: 'Bearer ' + state.token
         }

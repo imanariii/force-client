@@ -23,7 +23,7 @@ const Category = () => {
   }
 
   useEffect(()=>{
-    FetchGetAllCategorias(setCategories)
+    FetchGetAllCategorias(setCategories, state)
     setFetching(false)
   }, [fetching])
   return (

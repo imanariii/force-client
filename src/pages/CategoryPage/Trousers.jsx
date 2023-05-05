@@ -16,7 +16,7 @@ const Trousers = () => {
     setPage(newPage);
   };
   useEffect(()=>{
-    axios.get(`http://localhost:5000/api/products?page=${page}`)
+    axios.get(`${state.address}/products?page=${page}`)
       .then(function (res) {
         setProducts(res.data.rows)
         setTotalCountPages( Math.round(res.data.count/2))

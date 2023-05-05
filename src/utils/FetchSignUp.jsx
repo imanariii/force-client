@@ -8,7 +8,7 @@ export function FetchSignUp({login, password, context}) {
     const navigate = useNavigate();
     const axiosUp = async () => {
         try {
-            const { data } = await axios.post('http://localhost:5000/api/user/registration', {email: login, password: password, role: 'Пользователь'})
+            const { data } = await axios.post(`${context.address}/api/user/registration`, {email: login, password: password})
             context.notifySuc('Успешно')
             setTimeout(() =>{
                 Cookies.set('token', data.token)

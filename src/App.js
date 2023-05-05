@@ -10,8 +10,8 @@ import Router from "./components/Router";
 
 export function App() {
   const token = Cookies.get('token');
-
   const [state, setState] = useState({
+    address: 'http://194.58.107.227:5000/api',
     theme: 'dark',
     toggleTheme: () => setState(state => ({ ...state, theme: state.theme === 'dark' ? 'light' : 'dark', })),
     token: null,

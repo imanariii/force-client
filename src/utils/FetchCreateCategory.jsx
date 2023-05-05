@@ -6,7 +6,7 @@ const FetchCreateCategory = ({name, setFetching, description}) => {
   const state = useContext(Api)
   console.log(name, description)
   const axiosCreate = async () => {
-    await axios.post('http://localhost:5000/api/category', {
+    await axios.post(`${state.address}/category`, {
       name: name,
       description: description
     }, {

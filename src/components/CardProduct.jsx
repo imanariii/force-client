@@ -7,7 +7,7 @@ const CardProduct = ({item, i}) => {
   return (
     <div className="card__wrapper" key={i}>
       <div className="card__body">
-        <img src={'http://localhost:5000/' + item.img} alt="" />
+        <img src={state.address.slice(0, -3) + item.img} alt="" />
         <div>
           <span>{item.price}rub</span>
           <h3>{item.name}</h3>

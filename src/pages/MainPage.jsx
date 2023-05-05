@@ -11,7 +11,7 @@ export default function MainPage (props) {
     const state = useContext(Api)
     const [categorias, setCategorias] = useState([])
     useEffect(()=>{
-      FetchGetAllCategorias(setCategorias)
+      FetchGetAllCategorias(setCategorias, state)
     }, [])
     return (
         <>

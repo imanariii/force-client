@@ -5,7 +5,7 @@ import { Api } from "../context/Api";
 const FetchCreateBrand = ({name, setFetching}) => {
   const state = useContext(Api)
   const axiosCreate = async () => {
-  await axios.post(`http://localhost:5000/api/brand/`, {name: name}, {
+  await axios.post(`${state.address}/brand/`, {name: name}, {
     headers: {
       Authorization: 'Bearer ' + state.token
     }

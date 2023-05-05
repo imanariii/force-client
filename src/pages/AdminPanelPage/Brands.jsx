@@ -16,7 +16,7 @@ const Brands = () => {
   }
 
   useEffect(() => {
-    FetchGetAllBrands(setBrands)
+    FetchGetAllBrands(setBrands, state)
     setFetching(false)
   }, [fetching])
 

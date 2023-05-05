@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const FetchGetOneProduct = (id, setActiveCard) => {
-  axios.get(`http://localhost:5000/api/products/${id}`)
+const FetchGetOneProduct = (id, setActiveCard, state) => {
+  axios.get(`${state.address}/products/${id}`)
     .then(function (res) {
       setActiveCard(res.data)
     })

@@ -31,9 +31,9 @@ const Products = () => {
   const [visibleModal, setVisibleModal] = useState(false)
 
   useEffect(()=>{
-    axios.get(`http://localhost:5000/api/products`)
+    axios.get(`${state.address}/products`)
       .then(function(res) {
-        axios.get(`http://localhost:5000/api/products?limit=${res.data.count}`)
+        axios.get(`${state.address}/products?limit=${res.data.count}`)
           .then(function (res) {
             setProducts(res.data.rows)
           })
@@ -68,16 +68,16 @@ const Products = () => {
             { products.length > 0 && products.map(item => (
               <tr key={item.id}>
                 <td> {item.id} </td>
-                <td><Image height='50px' width='50px' src={'http://localhost:5000/' + item.img}/></td>
+                <td><Image height='50px' width='50px' src={state.address.slice(0, -3) + item.img}/></td>
                 <td>{item.name}</td>
                 <td>{item.price}</td>
                 <td>{item.count}</td>
                 <td className="products-btns">
                   <button className="edit-btn" onClick={()=>{
-                    FetchGetOneProduct(item.id, setActiveCard)
+                    FetchGetOneProduct(item.id, setActiveCard, state)
                     setVisibleModal(true)
                   }}><span>Edit</span></button>
-                  <FetchRemove id={item.id} setFetching={setFetching} />
+                  <FetchRemove id={item.id} setFetching={setFetching} state={state}/>
                 </td>
               </tr>
             ))}

@@ -7,7 +7,7 @@ export function FetchRemove({id, setFetching}) {
   const context = useContext(Api)
   const axiosRemove = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`)
+      await axios.delete(`${context.address}/products/${id}`)
       setFetching(true)
       context.notifySuc('Успешно')
     } catch (error) {
