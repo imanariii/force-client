@@ -44,7 +44,7 @@ const AddProducts = () => {
   useEffect(() => {
     FetchGetAllBrands(setBrands, state)
     FetchGetAllCategorias(setCategories, state)
-  }, [])
+  }, [state])
   return (
     <>
       <Header />

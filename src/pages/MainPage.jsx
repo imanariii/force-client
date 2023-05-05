@@ -12,7 +12,7 @@ export default function MainPage (props) {
     const [categorias, setCategorias] = useState([])
     useEffect(()=>{
       FetchGetAllCategorias(setCategorias, state)
-    }, [])
+    }, [state])
     return (
         <>
           <Header />

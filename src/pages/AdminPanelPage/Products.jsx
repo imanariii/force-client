@@ -48,7 +48,7 @@ const Products = () => {
         console.log(err)
       })
 
-  }, [fetching])
+  }, [fetching, state])
   return (
     <>
       <Header />

@@ -25,7 +25,7 @@ const Category = () => {
   useEffect(()=>{
     FetchGetAllCategorias(setCategories, state)
     setFetching(false)
-  }, [fetching])
+  }, [fetching, state])
   return (
     <>
       <Header />

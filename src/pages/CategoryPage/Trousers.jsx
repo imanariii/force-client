@@ -24,7 +24,7 @@ const Trousers = () => {
       .catch(err => {
         console.log(err)
       })
-  }, [page])
+  }, [page, state])
 
   // Динамическая подгрузка
 //   useEffect(()=>{
