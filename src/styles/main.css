@@ -45,7 +45,9 @@ header {
     padding: 1rem 2rem;
     font-size: 1.4rem;
 }
-
+main {
+    min-height: 90vh;
+}
 .header__body {
     display: flex;
     justify-content: space-between;

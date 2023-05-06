@@ -5,16 +5,24 @@ import AddBusinessTwoToneIcon from "@mui/icons-material/AddBusinessTwoTone";
 import SellTwoToneIcon from "@mui/icons-material/SellTwoTone";
 import NoteAddTwoToneIcon from "@mui/icons-material/NoteAddTwoTone";
 import ShoppingBagTwoToneIcon from "@mui/icons-material/ShoppingBagTwoTone";
-// import { useNavigate } from "react-router-dom";
-// import { useState } from "react";
-// import { Api } from "../context/Api";
+import { useNavigate } from "react-router-dom";
+import { Api } from "../context/Api";
+import { useState, useContext, useEffect } from "react";
 
-const NavigationButtonsAdmin = () => {
-//   const state = useContext(Api)
-//   const [navValue, setNavValue] = useState(value);
+const NavigationButtonsAdmin = ({value}) => {
+  const state = useContext(Api)
+  const [navValue, setNavValue] = useState(value);
 
+  const navigate = useNavigate();
+
+  const navHandleChange = (event, newValue) => {
+    setNavValue(newValue);
+  };
+  useEffect(()=>{
+    navigate(`../${navValue}`)
+  }, [navigate, navValue])
   return (
-    <BottomNavigation>
+    <BottomNavigation value={navValue} onChange={navHandleChange} style={{background: state.theme === 'dark' ? '#343434' : 'white'}}>
       <BottomNavigationAction
         label="Создание бренда"
         value="brands"
