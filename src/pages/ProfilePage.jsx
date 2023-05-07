@@ -61,7 +61,7 @@ const ProfilePage = () => {
                     </tr>
                     { state.cards.length > 0 && state.cards.map(item => (
                       <tr key={item.id}>
-                        <td className="img"><Image height='50px' width='50px' src={'http://localhost:5000/' + item.img}/></td>
+                        <td className="img"><Image height='50px' width='50px' src={state.address.slice(0, -3) + item.img}/></td>
                         <td>{item.name}</td>
                         <td>{item.price}</td>
                         <td><FetchRemove id={item.id} /> </td>
