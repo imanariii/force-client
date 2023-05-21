@@ -58,7 +58,9 @@ const Trousers = () => {
       <Header />
       <main className={`category__wrapper ${state.theme}`}>
         <NavigationButtonsCategory value={'trousers'} />
-        <Pagination count={totalCountPages} page={page} variant="text" color="primary" onChange={handleChangePage} style={{background: state.theme === 'dark' ? '#343434' : 'white'}} />
+        <Pagination count={totalCountPages} page={page} variant="text" color="primary" onChange={handleChangePage} style={{background: state.theme === 'dark' ? '#343434' : 'white',
+          borderBottomLeftRadius: '12px',
+          borderBottomRightRadius: '12px'}} />
 
         <div className="category__body">
           {products && products.map((item, i)=>(

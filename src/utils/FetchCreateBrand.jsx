@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import { Api } from "../context/Api";
+import { Button } from "@mui/material";
 
 const FetchCreateBrand = ({name, setFetching}) => {
   const state = useContext(Api)
@@ -18,7 +19,7 @@ const FetchCreateBrand = ({name, setFetching}) => {
   setFetching(true)
   }
   return (
-    <button onClick={()=>axiosCreate()}>Добавить</button>
+    <Button variant="contained" id="btn" color="success" onClick={()=>axiosCreate()}>Добавить</Button>
   )
 }
 

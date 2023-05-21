@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useContext } from "react";
 import { Api } from "../context/Api";
+import { Button } from "@mui/material";
 
 export function FetchRemove({id, setFetching}) {
   const context = useContext(Api)
@@ -20,6 +21,6 @@ export function FetchRemove({id, setFetching}) {
     }
   }
   return (
-    <button className="remove-btn" onClick={()=>axiosRemove()}><span>Remove</span></button>
+    <Button variant="contained" id="btn" color="error" onClick={()=>axiosRemove()}><span>Удалить</span></Button>
   )
 }

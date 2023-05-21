@@ -1,0 +1,18 @@
+.question__body-light {
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.question__body-dark {
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.question__body-dark h1 {
+    text-align: center;
+    color: white;
+}
+.question__body-light h1 {
+    text-align: center;
+    color: white;
+}

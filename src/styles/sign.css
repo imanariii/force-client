@@ -2,14 +2,7 @@
     margin: 0;
     padding: 0;
 }
-.light {
-    background-color: white;
-    color: #1870c7;
-}
-.dark {
-    background-color: #1d1d1d;
-    color: white;
-}
+
 .sign__page-dark {
     display: flex;
     background-color: #414141;
@@ -82,13 +75,9 @@
 }
 .profile-content div {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 1rem;
-}
-.profile-content div:last-child {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .error__body {
     padding: 2rem 4rem;

@@ -1,30 +1,77 @@
-import { Header} from "../components";
-import React, { useContext } from "react";
+import { Header, Orders } from "../components";
+import React, { useContext, useEffect, useState } from "react";
 import '../styles/profile.css';
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import Cookies from 'js-cookie';
 import { Api } from '../context/Api'
 import { Link } from "react-router-dom";
-import { Image } from "react-bootstrap";
-import { FetchRemove } from "../utils/FetchRemove";
+import EditLocationAltIcon from '@mui/icons-material/EditLocationAlt';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import editAddressUser from "../utils/editAddressUser";
+import FetchGetOneUser from "../utils/FetchGetOneUser";
+import jwt_decode from "jwt-decode";
 
 const ProfilePage = () => {
     const state = useContext(Api)
-    console.log(state.user)
+    const userId = jwt_decode(state.token);
+
+    const [newAddress, setNewAddress] = useState('')
+    const [editInput, setEditInput] = useState(false)
+
+
+
+    const onChangeNewAddress = (address) => {
+      setNewAddress(address)
+    }
+
+    useEffect(()=>{
+      if(state.user.email === undefined) {
+        const user = jwt_decode(state.token);
+        FetchGetOneUser(user.id, state)
+      }
+    }, [state, newAddress])
+
     return (
           <>
             <Header />
-            <main className={`${state.theme} profile`}>
+            <main className={`${state.theme}-profile profile`}>
               <div className='profile__wrapper'>
                 <div className='profile__body'>
-                  <h1>Profile</h1>
+                  <h1>Личный кабинет</h1>
                   <div className="profile-content">
-                    <div>
                       <p className="content-title">Ваш E-mail : {state.user.email}</p>
-                      <p className="content-role">Ваша роли : { state.user.role }</p>
-                      <p className="content-address">Ваш адрес : {state.user.address}</p>
+                      <p className="content-role">Ваша роль : { state.user.role }</p>
+                        {!editInput ? (
+                          <div className="content-address">
+                            <span>Ваш адрес : {state.user.address}</span>
+                            <Button id="btn" variant="contained" startIcon={<EditLocationAltIcon />} onClick={()=>setEditInput(true)}>
+                              Изменить
+                            </Button>
+                          </div>
+                        ) : (
+                          <div className="content-address">
+                            <TextField id="outlined-basic" label="Введите новый адрес" variant="outlined" width={"100%"} onChange={(e)=>onChangeNewAddress(e.target.value)} />
+                            <Button id="btn" variant="contained" startIcon={<CheckCircleIcon />}
+                                    style={{
+                                      height: 'min-content',
+                                      padding: '12px 24px'
+                                    }}
+                                    onClick={()=>{
+                                      if(newAddress.length > 10) {
+                                        setEditInput(false)
+                                        editAddressUser(state, state.user.id, newAddress)
+                                        FetchGetOneUser(userId.id, state)
+                                        state.notifySuc('Успешно обновлен адрес!')
+                                      } else {
+                                        state.notifyErr('Адрес не может быть короче 10 символов!')
+                                      }
+                            }}>
+                              Подтвердить
+                            </Button>
+                          </div>
+                        )}
                     </div>
-                    <div>
+                    <div className="profile-actions">
                       { state.user.role === 'ADMIN' &&
                         <Link to="../admin-panel/products">
                           <Button id="btn" variant="contained">
@@ -47,35 +94,9 @@ const ProfilePage = () => {
                       </Link>
                     </div>
                   </div>
-                </div>
               </div>
-              <div className="cart__wrapper">
-                <div className="cart__body">
-                  <h1>Ваша корзина</h1>
-                  <table>
-                    <tr>
-                      <td>Image</td>
-                      <td>Title</td>
-                      <td>Price</td>
-                      <td></td>
-                    </tr>
-                    { state.cards.length > 0 && state.cards.map(item => (
-                      <tr key={item.id}>
-                        <td className="img"><Image height='50px' width='50px' src={state.address.slice(0, -3) + item.img}/></td>
-                        <td>{item.name}</td>
-                        <td>{item.price}</td>
-                        <td><FetchRemove id={item.id} /> </td>
-                      </tr>
-                    ))}
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
+
+              <Orders />
             </main>
             <Header />
           </>

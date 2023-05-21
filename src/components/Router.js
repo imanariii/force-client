@@ -11,6 +11,7 @@ import { ToastContainer } from "react-toastify";
 import React from "react";
 import { Brands, Category, Products, AddProducts } from "../pages/AdminPanelPage";
 import { Hoodie, Sneaks, Trousers } from "../pages/CategoryPage";
+import Carts from "./Carts";
 
 const Router = (state)=>{
   return (
@@ -22,13 +23,21 @@ const Router = (state)=>{
         {
           path: '',
           errorElement: <ErrorPage />,
-          element: <MainPage />
+          element:
+            <>
+              <MainPage />
+              <Carts />
+            </>
         },
         {
           path: 'signin',
           errorElement: <ErrorPage />,
           element: (state.isAuth) ? (
-            <ProfilePage />
+            <>
+              <ProfilePage />
+              <ToastContainer />
+              <Carts />
+            </>
           ) : (
             <>
               <SignInPage />
@@ -40,7 +49,11 @@ const Router = (state)=>{
           path: 'signup',
           errorElement: <ErrorPage />,
           element: (state.isAuth) ? (
-            <ProfilePage />
+            <>
+              <ProfilePage />
+              <ToastContainer />
+              <Carts />
+            </>
           ) : (
             <>
               <SignUpPage />
@@ -52,7 +65,11 @@ const Router = (state)=>{
           path: 'profile',
           errorElement: <ErrorPage />,
           element: (state.isAuth) ? (
-            <ProfilePage />
+            <>
+              <ProfilePage />
+              <ToastContainer />
+              <Carts />
+            </>
           ) : (
             <MainPage />
           )
@@ -60,7 +77,10 @@ const Router = (state)=>{
         {
           path: 'questions',
           errorElement: <ErrorPage />,
-          element: <QuestionsPage />
+          element: <>
+            <QuestionsPage />
+            <Carts />
+          </>
         },
         {
           path: 'admin-panel',
@@ -72,9 +92,13 @@ const Router = (state)=>{
                 <>
                   <Products />
                   <ToastContainer />
+                  <Carts />
                 </>
               ) : (
-                <MainPage />
+                <>
+                  <MainPage />
+                  <Carts />
+                </>
               )
             }, {
               path: 'add-product',
@@ -83,9 +107,13 @@ const Router = (state)=>{
                 <>
                   <AddProducts />
                   <ToastContainer />
+                  <Carts />
                 </>
               ) : (
-                <MainPage />
+                <>
+                  <MainPage />
+                  <Carts />
+                </>
               )
             }, {
               path: 'brands',
@@ -94,9 +122,13 @@ const Router = (state)=>{
                 <>
                   <Brands />
                   <ToastContainer />
+                  <Carts />
                 </>
               ) : (
-                <MainPage />
+                <>
+                  <MainPage />
+                  <Carts />
+                </>
               )
             }, {
               path: 'category',
@@ -105,10 +137,14 @@ const Router = (state)=>{
                 <>
                   <Category />
                   <ToastContainer />
+                  <Carts />
                 </>
 
               ) : (
-                <MainPage />
+                <>
+                  <MainPage />
+                  <Carts />
+                </>
               ),
             }
           ]
@@ -124,6 +160,7 @@ const Router = (state)=>{
                 <>
                   <Sneaks />
                   <ToastContainer />
+                  <Carts />
                 </>
               )
             },
@@ -134,6 +171,7 @@ const Router = (state)=>{
                 <>
                   <Trousers />
                   <ToastContainer />
+                  <Carts />
                 </>
               )
             },
@@ -144,6 +182,7 @@ const Router = (state)=>{
                 <>
                   <Hoodie />
                   <ToastContainer />
+                  <Carts />
                 </>
               )
             }

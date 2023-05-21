@@ -3,20 +3,39 @@ import { createContext } from "react";
 
 export const Api = createContext({
   address: 'https://force-rnd.ru/api',
+  setAddress: () => {
+  },
   theme: 'dark',
-  toggleTheme: () => {},
+  toggleTheme: () => {
+  },
   user: {},
-  setUser: () => {},
-  resetUser: () => {},
-  notifyErr: () => {},
-  notifySuc: () => {},
+  setUser: () => {
+  },
+  resetUser: () => {
+  },
+  notifyErr: () => {
+  },
+  notifySuc: () => {
+  },
   token: null,
-  removeToken: () => {},
-  setToken: () => {},
+  removeToken: () => {
+  },
+  setToken: () => {
+  },
   isAuth: false,
-  toggleIsAuth: () => {},
+  toggleIsAuth: () => {
+  },
   isAdmin: false,
-  toggleIsAdmin: () => {},
+  toggleIsAdmin: () => {
+  },
   cards: [],
-  setCards: () => {},
+  EditCountCartItem: () => {
+  },
+  AddCartItem: () => {
+  },
+  RemoveCartItem: () => {
+
+  },
+  cartsShowState: false,
+  setCartsShowState: () => {}
 });

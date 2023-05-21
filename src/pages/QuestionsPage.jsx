@@ -1,8 +1,9 @@
 import { Header, Question } from "../components";
-import '../styles/sign.css';
 import { useContext } from "react";
 import { Api } from "../context/Api";
-
+import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import '../styles/question.css'
 const QuestionsPage = () => {
   const state = useContext(Api)
   const questions = [
@@ -24,11 +25,26 @@ const QuestionsPage = () => {
   <>
     <Header />
     <main>
-      <div className={`sign__wrapper-${state.theme}`}>
-        <div className={`sign__body-${state.theme}`}>
+      <div className={`question__wrapper-${state.theme}`}>
+        <div className={`question__body-${state.theme}`}>
           <h1>Ответы на частые вопросы</h1>
           <div className="questions__list">
-            {questions.map((question, i)=> <Question key={i} question={question} />) }
+            {questions.map((question, i)=> (
+              <Accordion style={{width: '100%'}}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2a-content"
+                  id="panel2a-header"
+                >
+                  <Typography>{question.title}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>
+                    {question.otvet}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              ))}
           </div>
         </div>
       </div>

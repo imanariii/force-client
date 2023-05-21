@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext } from "react";
 import { Api } from "../context/Api";
+import { Button } from "@mui/material";
 
 const FetchCreateCategory = ({name, setFetching, description}) => {
   const state = useContext(Api)
@@ -21,9 +22,9 @@ const FetchCreateCategory = ({name, setFetching, description}) => {
     setFetching(true)
     }
   return (
-    <button onClick={()=>axiosCreate()}>
+    <Button variant="contained" id="btn" color="success" onClick={()=>axiosCreate()}>
       Добавить
-    </button>
+    </Button>
   )
 }
 

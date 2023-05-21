@@ -7,6 +7,8 @@ import jwt_decode from "jwt-decode";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Router from "./components/Router";
+import FetchGetOneUser from "./utils/FetchGetOneUser";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 export function App() {
   const token = Cookies.get('token');
@@ -18,6 +20,7 @@ export function App() {
     removeToken: () => setState( state => ({ ...state, token: null })),
     setToken: props => setState( state => ({ ...state, token: props })),
     user: {},
+    setAddress: props => setState(state=>({...state, user: state.user.address=props})),
     setUser: props => setState(state => ({ ...state, user: props })),
     resetUser:  () => setState( state => ({ ...state, user: {} })),
     isAuth: false,
@@ -42,7 +45,11 @@ export function App() {
       theme: state.theme,
       }),
     cards: [],
-    setCards: props => setState(state => ({...state, cards: [...state.cards, props]}))
+    AddCartItem: props => setState(state => ({...state, cards: [...state.cards, props]})),
+    EditCountCartItem: props => setState(state => ({...state, cards: props})),
+    RemoveCartItem: props => setState(state => ({...state, cards: props})),
+    cartsShowState: false,
+    setCartsShowState: props => setState(state => ({...state, cartsShowState: props})),
   });
 
   Router(state)
@@ -53,11 +60,10 @@ export function App() {
       if(JSON.stringify(state.user) === JSON.stringify({})) {
         state.toggleIsAuth(true);
         state.setToken(token);
-        state.setUser(user);
+        FetchGetOneUser(user.id, state)
       }
     }
-  }, [state, token]);
-
+  }, [state, token, setState]);
   return (
       <Api.Provider value={state}>
           <RouterProvider router = {Router(state)} />

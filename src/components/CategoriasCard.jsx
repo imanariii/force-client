@@ -10,11 +10,6 @@ const CategoriasCard = ({id, name, description}) => {
       {context => (
         <div className="wrapper__categories-card">
           <div className={`body__categories-card-${context.theme}`}>
-            <div className={`caregory-ddnt-hover`}>
-              <CheckroomIcon style={{width: '100px', height: '100px' }} />
-              <h1>{description}</h1>
-            </div>
-
             <div className="categories-card-txt">
               <h3>{description}</h3>
               <Link to={`../category/${name}`}><Button id="btn" variant="contained">Перейти</Button></Link>

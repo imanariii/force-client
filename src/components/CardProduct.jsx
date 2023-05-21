@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Api } from "../context/Api";
-import FetchGetOneProduct from "../utils/FetchGetOneProduct";
+import AddToCard from "../utils/AddToCart";
 
 const CardProduct = ({item, i}) => {
   const state = useContext(Api)
@@ -12,12 +12,7 @@ const CardProduct = ({item, i}) => {
           <span>{item.price}rub</span>
           <h3>{item.name}</h3>
           <button onClick={()=>{
-            if(state.cards.length < 5) {
-              FetchGetOneProduct(item.id, state.setCards, state.cards)
-              state.notifySuc('Товар добавлен в корзину')
-            }else {
-              state.notifyErr('Максимальное кол-во товаров в корзине 5шт')
-            }
+              AddToCard(state, item.id)
           }}>+</button>
         </div>
       </div>

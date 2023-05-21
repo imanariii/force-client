@@ -9,6 +9,7 @@ import FetchGetOneProduct from "../../utils/FetchGetOneProduct";
 import { FetchRemove } from "../../utils/FetchRemove";
 import '../../styles/adminpanel.css';
 import { Api } from "../../context/Api";
+import { Button } from "@mui/material";
 
 const Products = () => {
   const state = useContext(Api)
@@ -59,24 +60,34 @@ const Products = () => {
           <table>
             <tr>
               <td>Id</td>
-              <td>Image</td>
-              <td>Title</td>
-              <td>Price</td>
-              <td>Count</td>
-              <td></td>
+              <td>Картинка</td>
+              <td>Наименование</td>
+              <td>Цена</td>
+              <td>Кол-во</td>
+              <td className="hidden"></td>
             </tr>
             { products.length > 0 && products.map(item => (
               <tr key={item.id}>
                 <td> {item.id} </td>
                 <td><Image height='50px' width='50px' src={state.address.slice(0, -3) + item.img}/></td>
-                <td>{item.name}</td>
-                <td>{item.price}</td>
-                <td>{item.count}</td>
-                <td className="products-btns">
-                  <button className="edit-btn" onClick={()=>{
+                <td className="hidden">
+                  {item.name}
+                </td>
+                <td className="visible">
+                  {item.name}
+                  <Button variant="contained" id="btn" color="warning" onClick={()=>{
                     FetchGetOneProduct(item.id, setActiveCard, state)
                     setVisibleModal(true)
-                  }}><span>Edit</span></button>
+                  }}><span>Изменить</span></Button>
+                  <FetchRemove id={item.id} setFetching={setFetching} state={state}/>
+                </td>
+                <td>{item.price}</td>
+                <td>{item.count}</td>
+                <td className="hidden">
+                  <Button variant="contained" id="btn" color="warning" onClick={()=>{
+                    FetchGetOneProduct(item.id, setActiveCard, state)
+                    setVisibleModal(true)
+                  }}><span>Изменить</span></Button>
                   <FetchRemove id={item.id} setFetching={setFetching} state={state}/>
                 </td>
               </tr>

@@ -24,12 +24,12 @@ const NavigationButtonsAdmin = ({value}) => {
   return (
     <BottomNavigation value={navValue} onChange={navHandleChange} style={{background: state.theme === 'dark' ? '#343434' : 'white'}}>
       <BottomNavigationAction
-        label="Создание бренда"
+        label="Создание бренда & категории"
         value="brands"
         icon={<AddBusinessTwoToneIcon />}
       />
       <BottomNavigationAction
-        label="Создание категории"
+        label="Все платежи"
         value="category"
         icon={<SellTwoToneIcon />}
       />
