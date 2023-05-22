@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { CardOrder } from "./index";
 import { useContext } from "react";
 import { Api } from "../context/Api";
@@ -11,10 +10,10 @@ const Orders = () => {
   const [orders, setOrders] = useState([])
   useEffect(()=>{
     FetchGetOrders(state, setOrders)
-  }, [])
+  }, [state, setOrders])
   useEffect(()=>{
     FetchGetOrders(state, setOrders)
-  }, [orders])
+  }, [state, orders])
   return (
     <div className="orders__wrapper">
       <h1>Ваши платежи</h1>

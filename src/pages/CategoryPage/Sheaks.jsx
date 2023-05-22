@@ -16,10 +16,10 @@ const Sneaks = () => {
     setPage(newPage);
   };
   useEffect(()=>{
-    axios.get(`${state.address}/products?page=${page}`)
+    axios.get(`${state.address}/products?page=${page}&categoryId=1`)
       .then(function (res) {
         setProducts(res.data.rows)
-        setTotalCountPages( Math.round(res.data.count/2))
+        setTotalCountPages( Math.round(res.data.count/6))
       })
       .catch(err => {
         console.log(err)

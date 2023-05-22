@@ -1,7 +1,6 @@
 import { Button } from "@mui/material";
 import { Link } from 'react-router-dom'
 import { Api } from '../context/Api';
-import CheckroomIcon from '@mui/icons-material/Checkroom';
 
 
 const CategoriasCard = ({id, name, description}) => {

@@ -33,7 +33,7 @@ const Brands = () => {
     FetchGetAllBrands(setBrands, state)
     FetchGetAllCategorias(setCategories, state)
     setFetching(false)
-  }, [fetching])
+  }, [state, fetching])
 
   return (
     <>

@@ -25,7 +25,7 @@ export default function ModalOrder({open, scroll, handleClose ,order}) {
       .catch(err => {
         console.log(err)
       })
-  }, [])
+  }, [state, order])
   return (
     <div>
       <Dialog
@@ -57,7 +57,7 @@ export default function ModalOrder({open, scroll, handleClose ,order}) {
           <span className="order-prop">Статус заказа: {status}</span>
         </DialogContent>
         <DialogActions>
-          <ButtonCardOrder status={status} />
+          <ButtonCardOrder status={status} order={order} />
           <Button onClick={handleClose}>Закрыть</Button>
         </DialogActions>
       </Dialog>

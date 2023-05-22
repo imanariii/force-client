@@ -16,7 +16,7 @@ const Hoodie = () => {
     setPage(newPage);
   };
   useEffect(()=>{
-    axios.get(`${state.address}/products?page=${page}`)
+    axios.get(`${state.address}/products?page=${page}&categoryId=2`)
       .then(function (res) {
         setProducts(res.data.rows)
         setTotalCountPages( Math.round(res.data.count/2))

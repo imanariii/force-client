@@ -1,9 +1,10 @@
-import { Header, Question } from "../components";
+import { Header } from "../components";
 import { useContext } from "react";
 import { Api } from "../context/Api";
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import '../styles/question.css'
+
 const QuestionsPage = () => {
   const state = useContext(Api)
   const questions = [

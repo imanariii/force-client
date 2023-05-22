@@ -3,7 +3,7 @@ import axios from "axios";
 const AddToCard = (state, id) => {
   axios.get(`${state.address}/products/${id}`)
     .then(function (res) {
-      state.cards.map(item=>{
+      state.cards.forEach(item=>{
         if(item.id===id) {
           res.data.count = item.count+1;
           console.log(item.count)

@@ -10,14 +10,13 @@ const cancelOrder = (state, order) => {
     .catch(err => {
       console.log(err)
     })
-  axios.post('https://securepay.tinkoff.ru/v2/Cancel', {
-    "TerminalKey" : "1683463385953",
-    "PaymentId" : order.paymentId,
-    "Token" : tokenSha
-  }) .then(function (res) {
+  axios.post('https://securepay.tinkoff.ru/v2/Cancel',{
+    "TerminalKey":"1683463385953",
+    "PaymentId":order.paymentId,
+    "Token" :tokenSha
+  }).then(function (res) {
     console.log(res)
-  })
-    .catch(err => {
+  }).catch(err => {
       console.log(err)
     })
 }

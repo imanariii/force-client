@@ -22,6 +22,9 @@ const getStateKassa = (state, paymentId, setStatus) => {
         case "CONFIRMED":
           setStatus('Платеж оплачен')
           break;
+        default:
+          setStatus('Платеж не оплачен')
+          break;
       }
     }).catch(err => {
       console.log(err)

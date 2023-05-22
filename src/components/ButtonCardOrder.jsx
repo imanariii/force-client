@@ -26,6 +26,10 @@ const ButtonCardOrder = ({status, order, setOrders}) => {
           state.notifySuc('Платеж отменён')
         }}>Отменить</Button>
       )
+    default:
+      return (
+        <>...</>
+      )
   }
 }
 

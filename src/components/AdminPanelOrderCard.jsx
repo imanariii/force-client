@@ -3,7 +3,6 @@ import getStateKassa from "../utils/getStateKassa";
 import { Button } from "@mui/material";
 import { ButtonCardOrder, ModalOrder } from "./index";
 import { Api } from "../context/Api";
-import FetchGetOneUser from "../utils/FetchGetOneUser";
 import axios from "axios";
 
 
@@ -30,7 +29,7 @@ const AdminPanelOrderCard = ({order, setOrders}) => {
       .catch(err => {
         console.log(err)
       })
-  }, [])
+  }, [state, order])
   return (
     <>
       <tr key={order.id}>

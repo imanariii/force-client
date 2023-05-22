@@ -1,6 +1,6 @@
 
 const RemoveToCart = (state, id) => {
-  state.cards.map(item=>{
+  state.cards.forEach(item=>{
     if(item.id === id) {
       if(item.count === 1) {
         const cards = state.cards.filter(item => item.id !== id)

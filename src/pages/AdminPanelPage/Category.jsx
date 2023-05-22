@@ -10,7 +10,7 @@ const Category = () => {
   const [orders, setOrders] = useState([])
   useEffect(()=>{
     FetchGetOrders(state, setOrders)
-  }, [])
+  }, [state])
   return (
     <>
       <Header />

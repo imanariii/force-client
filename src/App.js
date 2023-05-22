@@ -8,7 +8,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Router from "./components/Router";
 import FetchGetOneUser from "./utils/FetchGetOneUser";
-import { ParallaxProvider } from "react-scroll-parallax";
 
 export function App() {
   const token = Cookies.get('token');
