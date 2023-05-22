@@ -29,7 +29,7 @@ const initKassa = (state, result, newOrderId) => {
     "Description": desc,
     "DATA": {
       "Phone": "+79644555563",
-      "Email": "mr.rabadanov_17@mail.ru"
+      "Email": state.user.email
     },
     "Receipt": {
       "Email": state.user.email,

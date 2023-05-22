@@ -11,12 +11,19 @@ const AddToCard = (state, id) => {
       })
 
       const newCards = state.cards.filter(item=>item.id!==id)
-      state.EditCountCartItem([...newCards ,res.data])
-      if (res.data.count===1) {
-        state.notifySuc('Товар добавлен в корзину')
+      if (typeof state.user.email === 'string') {
+        if (res.data.count===1) {
+          state.EditCountCartItem([...newCards ,res.data])
+          state.notifySuc('Товар добавлен в корзину')
+        } else {
+          state.EditCountCartItem([...newCards ,res.data])
+          state.notifySuc('Кол-во товара увеличенно')
+        }
       } else {
-        state.notifySuc('Кол-во товара увеличенно')
+        state.notifyErr('Авторизируйтесь на сайте')
       }
+
+
     })
     .catch(err => {
       console.log(err)
