@@ -9,7 +9,7 @@ const CardProduct = ({item, i}) => {
       <div className="card__body">
         <img src={state.address.slice(0, -3) + item.img} alt="" />
         <div>
-          <span>{item.price}rub</span>
+          <span>{item.price}₽</span>
           <h3>{item.name}</h3>
           <button onClick={()=>{
               AddToCard(state, item.id)

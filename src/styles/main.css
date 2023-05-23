@@ -11,7 +11,11 @@
 * button {
     border-radius: 18px;
 }
-
+.btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
 .title {
     letter-spacing: 32px;
     font-size: 64px;
@@ -84,13 +88,13 @@ main {
 .wrapper__preview-light {
     height: 60vh;
     background-size: cover;
-    background-image: url("../assets/prev__wrapper.jpg");
+    background-image: url("../assets/prev__wrapper.webp");
     background-position: bottom;
 }
 .wrapper__preview-dark {
     height: 60vh;
     background-size: cover;
-    background-image: url("../assets/prev__wrapper-light.jpg");
+    background-image: url("../assets/prev__wrapper-light.webp");
     background-position: top;
 }
 .body__preview-light {
@@ -133,20 +137,20 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(65, 65, 65, 0.61);
+    background-color: rgb(27 27 27 / 85%);
 }
 
 
 .wrapper__categories-dark {
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('../assets/main__wrapper.jpg');
+    background-image: url('../assets/main__wrapper.webp');
     background-position-y: center;
 }
 .wrapper__categories-light {
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('../assets/main__wrapper-light.jpg');
+    background-image: url('../assets/main__wrapper-light.webp');
     background-position-y: center;
 }
 .categories-title {
@@ -325,7 +329,7 @@ main {
         letter-spacing: 1.5rem;
     }
     .body__preview-dark, .body__preview-light {
-        padding: 0 1rem;
+        padding: 1rem;
     }
     .btns {
         flex-direction: column;

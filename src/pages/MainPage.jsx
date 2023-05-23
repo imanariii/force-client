@@ -1,18 +1,17 @@
-import {CategoriasCard, Header} from "../components";
+import {CategoriasCard, Footer, Header} from "../components";
 import { Api } from '../context/Api'
 import '../styles/main.css';
 import {Button} from "@mui/material";
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import FetchGetAllCategorias from "../utils/FetchGetAllCategorias";
-import React from "react";
 
 export default function MainPage (props) {
     const state = useContext(Api)
     const [categorias, setCategorias] = useState([])
     useEffect(()=>{
       FetchGetAllCategorias(setCategorias, state)
-    }, [state])
+    }, [state.categorias])
 
     return (
         <>
@@ -71,7 +70,7 @@ export default function MainPage (props) {
             </div>
           </div>
           </main>
-          <Header />
+          <Footer />
         </>
     )
 }

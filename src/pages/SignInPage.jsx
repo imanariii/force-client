@@ -1,5 +1,4 @@
-import React from 'react';
-import {Header} from "../components";
+import {Footer, Header} from "../components";
 import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput} from "@mui/material";
 import {useState} from "react";
 import '../styles/sign.css';
@@ -76,7 +75,7 @@ export default function SignInPage () {
                     </div>
                     <img src="https://sportsmarketinginfo.files.wordpress.com/2010/02/sports_by_saharay.jpg" alt="" />
                 </main>
-                <Header />
+                <Footer />
             </>
             )
           }

@@ -1,4 +1,4 @@
-import { Header, Orders } from "../components";
+import {Footer, Header, Orders} from "../components";
 import React, { useContext, useEffect, useState } from "react";
 import '../styles/profile.css';
 import { Button, TextField } from "@mui/material";
@@ -98,7 +98,7 @@ const ProfilePage = () => {
 
               <Orders />
             </main>
-            <Header />
+            <Footer />
           </>
     )
 }

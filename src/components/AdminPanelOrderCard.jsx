@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import getStateKassa from "../utils/getStateKassa";
 import { Button } from "@mui/material";
 import { ButtonCardOrder, ModalOrder } from "./index";
@@ -29,7 +29,7 @@ const AdminPanelOrderCard = ({order, setOrders}) => {
       .catch(err => {
         console.log(err)
       })
-  }, [state, order])
+  }, [])
   return (
     <>
       <tr key={order.id}>

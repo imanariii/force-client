@@ -29,15 +29,19 @@
     height: 100%;;
 }
 .category__wrapper {
-    background-image: url('../assets/category__wrapper.jpg');
+    background-image: url('../assets/category__wrapper.webp');
     background-size: cover;
     background-position: center;
     transition: 0.1s;
-    padding: 12px 0 0 0;
     display: flex;
     flex-direction: column;
 }
-
+.light .MuiBottomNavigationAction-iconOnly * {
+    color: #343434;
+}
+.dark .MuiBottomNavigationAction-iconOnly * {
+    color: white;
+}
 .category__wrapper nav{
     padding: 12px 0;
 }
@@ -54,7 +58,7 @@
 }
 
 .card__body img {
-    height: 400px;
+    height: 350px;
 }
 .card__body span {
     position: absolute;

@@ -1,4 +1,4 @@
-import { Header } from "../components";
+import {Footer, Header} from "../components";
 import { useContext } from "react";
 import { Api } from "../context/Api";
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
@@ -50,7 +50,7 @@ const QuestionsPage = () => {
         </div>
       </div>
     </main>
-    <Header />
+    <Footer />
   </>
   )
 }

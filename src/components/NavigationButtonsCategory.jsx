@@ -24,7 +24,7 @@ const NavigationButtonsCategory = ({value}) => {
       <BottomNavigationAction
         label="Обувь"
         value="sneaks"
-        icon={<AddBusinessTwoToneIcon />}
+        icon={<AddBusinessTwoToneIcon  />}
       />
       <BottomNavigationAction
           label="Худи"

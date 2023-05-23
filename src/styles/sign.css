@@ -9,6 +9,7 @@
     width: 100%;
     align-items: center;
     justify-content: space-between;
+    color: white;
 }
 .sign__page-light {
     display: flex;
@@ -16,6 +17,11 @@
     width: 100%;
     align-items: center;
     justify-content: space-between;
+    color: #1870c7;
+}
+.sign__wrapper-dark input MuiInputBase-input * {
+    color: white;
+
 }
 .sign__page-light img {
     width: 50%;

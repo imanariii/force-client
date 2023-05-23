@@ -1,5 +1,5 @@
 import React from 'react';
-import {Header} from "../components";
+import {Footer, Header} from "../components";
 import {useState} from "react";
 import {
     FormControl,
@@ -83,7 +83,7 @@ export default function SignUpPage () {
                 </div>
                 <img src="https://sportsmarketinginfo.files.wordpress.com/2010/02/sports_by_saharay.jpg" alt="" />
             </main>
-            <Header />
+            <Footer />
         </>
     )
 }

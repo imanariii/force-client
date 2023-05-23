@@ -9,3 +9,4 @@ export {default as Orders} from './Orders';
 export {default as ModalOrder} from './ModalOrder';
 export {default as Carts} from './Carts';
 export {default as AdminPanelOrderCard} from './AdminPanelOrderCard';
+export {default as Footer} from './Footer';

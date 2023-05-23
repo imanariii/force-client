@@ -1,4 +1,4 @@
-import { Header, CardProduct, NavigationButtonsCategory } from "../../components";
+import {Header, CardProduct, NavigationButtonsCategory, Footer} from "../../components";
 import React, { useContext, useEffect, useState } from "react";
 import '../../styles/category.css'
 import axios from "axios";
@@ -67,8 +67,12 @@ const Trousers = () => {
             <CardProduct item={item} i={i} key={i}/>
           ))}
         </div>
+          <Pagination count={totalCountPages} page={page} variant="text" color="primary" onChange={handleChangePage} style={{background: state.theme === 'dark' ? '#343434' : 'white',
+              borderTopLeftRadius: '12px',
+              borderTopRightRadius: '12px'
+          }}/>
       </main>
-      <Header />
+      <Footer />
     </>
   )
 }
