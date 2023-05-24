@@ -22,7 +22,7 @@ export default function Header (props) {
           <div className='header__body container'>
             <Link className="logo" to="../../">force</Link>
             <nav>
-              <IconButton color={state.theme === 'light' ? 'secondary' : 'success'} onClick={state.toggleTheme} aria-labelledby="Кнопка смены темы">
+              <IconButton color={state.theme === 'light' ? 'secondary' : 'success'} onClick={state.toggleTheme} role="button" aria-label="Кнопка смены темы" aria-labelledby="Кнопка смены темы">
                 {state.theme === 'light' ?
                   <DarkModeTwoToneIcon /> :
                   <LightModeTwoToneIcon />
@@ -31,12 +31,12 @@ export default function Header (props) {
                 {state.token && (
                   <>
                     <Link className="logo" to="../../profile">
-                      <IconButton color={state.theme === 'light' ? 'secondary' : 'success'} aria-labelledby="Кнопка перехода к профилю пользователя">
+                      <IconButton color={state.theme === 'light' ? 'secondary' : 'success'} role="link" aria-label="Кнопка перехода к профилю пользователя" aria-labelledby="Кнопка перехода к профилю пользователя">
                         <AccountCircleIcon />
                       </IconButton>
                     </Link>
                     <Link>
-                      <IconButton color={state.theme === 'light' ? 'secondary' : 'success'} aria-labelledby="Кнопка открытия корзины">
+                      <IconButton color={state.theme === 'light' ? 'secondary' : 'success'} role="button" aria-label="Кнопка открытия корзины" aria-labelledby="Кнопка открытия корзины">
                         <ShoppingCartTwoToneIcon onClick={()=>state.setCartsShowState(true)} />
                       </IconButton>
                       <span className={`cart-count ${state.theme}`}>{count}</span>
