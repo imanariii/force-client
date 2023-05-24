@@ -18,7 +18,11 @@ export default function Header (props) {
 
     return (
       <>
-        <header className={`header ${state.theme}`}>
+          <link
+              href="https://fonts.googleapis.com/icon?family=Material+Icons"
+              rel="stylesheet"
+          />
+          <header className={`header ${state.theme}`}>
           <div className='header__body container'>
             <Link className="logo" to="../../">force</Link>
             <nav>
