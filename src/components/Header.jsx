@@ -18,10 +18,6 @@ export default function Header (props) {
 
     return (
       <>
-          {/*<link */}
-          {/*    href="https://fonts.googleapis.com/icon?family=Material+Icons"*/}
-          {/*    rel="stylesheet"*/}
-          {/*/>*/}
           <header className={`header ${state.theme}`}>
           <div className='header__body container'>
             <Link className="logo" to="../../">force</Link>

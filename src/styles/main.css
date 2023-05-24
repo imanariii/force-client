@@ -4,7 +4,11 @@
     transition: all 250ms ease-in-out;
     scroll-behavior: smooth;
 }
-* a {
+* .dark a {
+    text-decoration: none;
+    color: white;
+}
+* .light a {
     text-decoration: none;
     color: #1870c7;
 }
