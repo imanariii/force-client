@@ -37,11 +37,7 @@ export default function MainPage (props) {
               </div>
             </div>
           </div>
-                  <div className={`wrapper__free-delivery-${state.theme}`} style={{
-                    backgroundImage: "url('https://sun9-5.userapi.com/impg/kyfkrVVSG_ZHLq7t8H_nvRCx9Rpwb6f4kkDeyQ/gewWKJp4gfM.jpg?size=316x106&quality=96&sign=82b88ec29eedbe442b766f0d9097eb75&type=album')",
-                    position: 'relative',
-                    top: '6%',
-                    zIndex: '0'}}>
+                  <div className={`wrapper__free-delivery-${state.theme}`}>
                     <div className={`body__free-delivery`}>
                       <span>Доставка по России и странам СНГ!</span>
                     </div>
