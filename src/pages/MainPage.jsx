@@ -1,6 +1,5 @@
 import {CategoriasCard, Footer, Header} from "../components";
-import { Api } from '../context/Api'
-import '../styles/main.css';
+import { Api } from '../context/Api';
 import {Button} from "@mui/material";
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
