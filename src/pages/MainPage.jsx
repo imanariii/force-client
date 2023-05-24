@@ -17,15 +17,12 @@ export default function MainPage (props) {
         <>
           <Header />
           <main className={state.theme}>
-          <div className={`wrapper__preview-${state.theme}`}
-               style={state.theme == 'dark' ? {
-                  backgroundImage: "url(../assets/prev__wrapper.webp')"} : {
-                   backgroundImage: "url(../assets/prev__wrapper-light.webp')"}}>
+          <div className={`wrapper__preview-${state.theme}`}>
             <div className={`body__preview-${state.theme}`}>
               <div className="glass">
                 {state.theme === 'light' ?
-                  <h1 className="title">be force</h1> :
-                  <h1 className="title">be strong</h1>
+                  <h1 className="title">be fisrt</h1> :
+                  <h1 className="title">be force</h1>
                 }
                 <div className="btns">
                   <Link to="../category/sneaks"><Button variant="contained" id="btn">Перейти к каталогу</Button></Link>
@@ -35,7 +32,7 @@ export default function MainPage (props) {
                   }
                 </div>
               </div>
-              <div className='ipgone-insta' style={{backgroundImage: 'url(../assets/iphone.png)'}}>
+              <div className='ipgone-insta'>
 
               </div>
             </div>
@@ -52,10 +49,7 @@ export default function MainPage (props) {
 
 
 
-          <div className={`wrapper__categories-${state.theme}`}
-               style={state.theme == 'dark' ? {
-              backgroundImage: "url(../assets/main__wrapper.webp')"} : {
-              backgroundImage: "url(../assets/main__wrapper-light.webp')"}}>
+          <div className={`wrapper__categories-${state.theme}`}>
             <div className={`body__categories-${state.theme}`}>
               <span className="categories-title">#1 в Ростове-На-Дону и одни из лучших в России</span>
               <div className="categories-list container">
