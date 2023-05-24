@@ -18,7 +18,7 @@ export default function MainPage (props) {
           <Header />
           <main className={state.theme}>
           <div className={`wrapper__preview-${state.theme}`}
-               style={state.theme === 'dark' ? {
+               style={state.theme == 'dark' ? {
                   backgroundImage: "url(../assets/prev__wrapper.webp')"} : {
                    backgroundImage: "url(../assets/prev__wrapper-light.webp')"}}>
             <div className={`body__preview-${state.theme}`}>
@@ -35,21 +35,16 @@ export default function MainPage (props) {
                   }
                 </div>
               </div>
-              <div className='ipgone-insta'>
+              <div className='ipgone-insta' style={{backgroundImage: 'url(../assets/iphone.png)'}}>
 
               </div>
             </div>
           </div>
-                  <div className={`wrapper__free-delivery-${state.theme}`} style={state.theme === 'dark' ? {
+                  <div className={`wrapper__free-delivery-${state.theme}`} style={{
                         backgroundImage: "url(../assets/bg.jpg')",
                         position: 'relative',
                         top: '6%',
-                        zIndex: '0'} : {
-                      backgroundImage: "url(../assets/bg.jpg')",
-                      position: 'relative',
-                      top: '6%',
-                      zIndex: '0'
-                  }}>
+                        zIndex: '0'}}>
                     <div className={`body__free-delivery`}>
                       <span>Доставка по России и странам СНГ!</span>
                     </div>
@@ -58,7 +53,7 @@ export default function MainPage (props) {
 
 
           <div className={`wrapper__categories-${state.theme}`}
-               style={state.theme === 'dark' ? {
+               style={state.theme == 'dark' ? {
               backgroundImage: "url(../assets/main__wrapper.webp')"} : {
               backgroundImage: "url(../assets/main__wrapper-light.webp')"}}>
             <div className={`body__categories-${state.theme}`}>
