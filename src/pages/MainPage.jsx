@@ -24,7 +24,7 @@ export default function MainPage (props) {
             <div className={`body__preview-${state.theme}`}>
               <div className="glass">
                 {state.theme === 'light' ?
-                  <h1 className="title">be first</h1> :
+                  <h1 className="title">be force</h1> :
                   <h1 className="title">be strong</h1>
                 }
                 <div className="btns">
