@@ -92,13 +92,11 @@ main {
 .wrapper__preview-light {
     height: 60vh;
     background-size: cover;
-    background-image: url("../assets/prev__wrapper.webp");
     background-position: bottom;
 }
 .wrapper__preview-dark {
     height: 60vh;
     background-size: cover;
-    background-image: url("../assets/prev__wrapper-light.webp");
     background-position: top;
 }
 .body__preview-light {
@@ -127,7 +125,6 @@ main {
     color: whitesmoke;
 }
 .wrapper__free-delivery-light {
-    background-image: url("../assets/bg.jpg");
     width: 100%;
     color: white;
 }
@@ -148,13 +145,11 @@ main {
 .wrapper__categories-dark {
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('../assets/main__wrapper.webp');
     background-position-y: center;
 }
 .wrapper__categories-light {
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('../assets/main__wrapper-light.webp');
     background-position-y: center;
 }
 .categories-title {

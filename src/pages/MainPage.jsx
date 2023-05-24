@@ -17,7 +17,10 @@ export default function MainPage (props) {
         <>
           <Header />
           <main className={state.theme}>
-          <div className={`wrapper__preview-${state.theme}`}>
+          <div className={`wrapper__preview-${state.theme}`}
+               style={state.theme === 'dark' ? {
+                  backgroundImage: "url(../assets/prev__wrapper.webp')"} : {
+                   backgroundImage: "url(../assets/prev__wrapper-light.webp')"}}>
             <div className={`body__preview-${state.theme}`}>
               <div className="glass">
                 {state.theme === 'light' ?
@@ -37,7 +40,16 @@ export default function MainPage (props) {
               </div>
             </div>
           </div>
-                  <div className={`wrapper__free-delivery-${state.theme}`}>
+                  <div className={`wrapper__free-delivery-${state.theme}`} style={state.theme === 'dark' ? {
+                        backgroundImage: "url(../assets/bg.jpg')",
+                        position: 'relative',
+                        top: '6%',
+                        zIndex: '0'} : {
+                      backgroundImage: "url(../assets/bg.jpg')",
+                      position: 'relative',
+                      top: '6%',
+                      zIndex: '0'
+                  }}>
                     <div className={`body__free-delivery`}>
                       <span>Доставка по России и странам СНГ!</span>
                     </div>
@@ -45,7 +57,10 @@ export default function MainPage (props) {
 
 
 
-          <div className={`wrapper__categories-${state.theme}`}>
+          <div className={`wrapper__categories-${state.theme}`}
+               style={state.theme === 'dark' ? {
+              backgroundImage: "url(../assets/main__wrapper.webp')"} : {
+              backgroundImage: "url(../assets/main__wrapper-light.webp')"}}>
             <div className={`body__categories-${state.theme}`}>
               <span className="categories-title">#1 в Ростове-На-Дону и одни из лучших в России</span>
               <div className="categories-list container">
