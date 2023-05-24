@@ -26,33 +26,6 @@ const Hoodie = () => {
       })
   }, [page, state])
 
-  // Динамическая подгрузка
-//   useEffect(()=>{
-//     if (fetching) {
-//     axios.get(`http://localhost:5000/api/products?page=${page}`)
-//       .then(function (res) {
-//         setProducts([...products, ...res.data.rows])
-//         setTotalCount(res.data.count)
-//         setPage(prevState => prevState + 1)
-//       })
-//       .catch(err => {
-//         console.log(err)
-//       })
-//     .finally(()=>setFetching(false))
-//     }
-// }, [fetching])
-//   useEffect(() => {
-//     document.addEventListener('scroll', scrollHandler)
-//
-//     return function () {
-//       document.removeEventListener('scroll', scrollHandler)
-//     };
-//   }, [fetching])
-//   const scrollHandler = (e) => {
-//     if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight)<100 && products.length < totalCount) {
-//       setFetching(true)
-//     }
-//   }
   return (
     <>
       <Header />
