@@ -11,14 +11,17 @@
     min-height: 87vh;
 }
 .dark-profile {
-    background-image: url('../assets/profile__wrapper.webp');
+    background-image: url('../assets/profile__wrapper.svg');
     background-position: center;
     color: white;
 }
 .light-profile {
     background-position: bottom;
-    background-image: url('../assets/profile__wrapper-light.webp');
+    background-image: url('../assets/profile__wrapper-light.svg');
     color: black;
+}
+.MuiInputBase-root .MuiOutlinedInput-root .MuiInputBase-colorPrimary .MuiInputBase-formControl {
+    width: 100%;
 }
 .orders__wrapper {
     margin: 24px 0;

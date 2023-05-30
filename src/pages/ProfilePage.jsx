@@ -40,7 +40,6 @@ const ProfilePage = () => {
                   <h1>Личный кабинет</h1>
                   <div className="profile-content">
                       <p className="content-title">Ваш E-mail : {state.user.email}</p>
-                      <p className="content-role">Ваша роль : { state.user.role }</p>
                         {!editInput ? (
                           <div className="content-address">
                             <span>Ваш адрес : {state.user.address}</span>
@@ -50,7 +49,7 @@ const ProfilePage = () => {
                           </div>
                         ) : (
                           <div className="content-address">
-                            <TextField id="outlined-basic" label="Введите новый адрес" variant="outlined" width={"100%"} onChange={(e)=>onChangeNewAddress(e.target.value)} />
+                            <TextField id="outlined-basic" label="Введите новый адрес" variant="outlined" style={{width: '100%'}} onChange={(e)=>onChangeNewAddress(e.target.value)} />
                             <Button id="btn" variant="contained" startIcon={<CheckCircleIcon />}
                                     style={{
                                       height: 'min-content',

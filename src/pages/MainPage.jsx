@@ -5,7 +5,9 @@ import {Button} from "@mui/material";
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import FetchGetAllCategorias from "../utils/FetchGetAllCategorias";
-
+const styleButton = {
+  color: 'white',
+}
 export default function MainPage (props) {
     const state = useContext(Api)
     const [categorias, setCategorias] = useState([])
@@ -24,11 +26,12 @@ export default function MainPage (props) {
                   <h1 className="title">be fisrt</h1> :
                   <h1 className="title">be force</h1>
                 }
+                <span style={{fontSize: '18px', fontWeight: '900', width: '80%'}}>Force - магазин спортивной одежды, мы поможем полюбить вас спорт и сделать его комфортным.</span>
                 <div className="btns">
-                  <Link to="../category/sneaks"><Button variant="contained" id="btn">Перейти к каталогу</Button></Link>
+                  <Link to="../category/sneaks"><Button size="large" variant="contained">Перейти к каталогу</Button></Link>
                   { state.isAuth
-                    ? <Link to="../profile"><Button variant="outlined" id="outlined">Войти в профиль</Button></Link>
-                    : <Link to="../signup"><Button variant="outlined" id="outlined">Зарегистрироваться</Button></Link>
+                    ? <Link to="../profile"><Button size="large" variant="contained">Войти в профиль</Button></Link>
+                    : <Link to="../signup"><Button  size="large" variant="contained">Зарегистрироваться</Button></Link>
                   }
                 </div>
               </div>

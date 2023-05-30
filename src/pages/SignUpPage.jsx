@@ -73,7 +73,7 @@ export default function SignUpPage () {
                                             </IconButton>
                                         </InputAdornment>
                                     }
-                                    placeholder="От 4 до 16 символов"
+                                    placeholder="От 6 до 16 символов"
                                     label="Ваш пароль:"
                                 />
                             </FormControl>
