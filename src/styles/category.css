@@ -29,7 +29,7 @@
     height: 100%;;
 }
 .category__wrapper {
-    background-image: url('../assets/category__wrapper.svg');
+    background-image: url('../assets/category__wrapper.webp');
     background-size: cover;
     background-position: center;
     transition: 0.1s;
